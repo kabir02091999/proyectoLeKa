@@ -47,7 +47,7 @@ const Nav = () => {
 
   const est = stylos()
 
-  const OpenClos = (modal)=>{
+  const openClos = ()=>{
 
     setmodal(!modal)
 
@@ -65,9 +65,7 @@ const Nav = () => {
             </div>
             <div className="botones">
                 
-                  <Button className={est.boton} variant="contained" color="primary" startIcon={<AccountCircleIcon/>} onClick={()=>{OpenClos(modal)}} >login</Button>
-
-                  
+                  <Button className={est.boton} variant="contained" color="primary" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
 
                   <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>
 
@@ -76,14 +74,15 @@ const Nav = () => {
           </AppBar> 
           <div className="cambio" ></div>
         </ThemeProvider>
+        
         <Modal 
           open={modal}
-          /* onClode={OpenClos} */>
+          onClose={openClos} >
 
-        <Login OpenClos={OpenClos} modal={modal} /> 
+           <div><Login openClos={openClos}  />  </div>
         
         </Modal>
-    
+        
       </div> );
 }
  

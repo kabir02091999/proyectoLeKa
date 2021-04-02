@@ -16,7 +16,7 @@ const useStyles=makeStyles((theme=>({
         top:'50%',
         left:'50%',
         transform:'translate(-50%,-50%)', 
-
+        borderRadius: '20px',
     }
 
 })))
@@ -55,10 +55,10 @@ const Login = (props) => {
                     variant="filled"
                     />
                     <br/>
-                    <Button  variant="contained" color="primary" onClick={()=>{props.OpenClos(props.modal)}}>
+                    <Button  variant="contained" color="primary" onClick={()=>{props.openClos()}}>
                       accetar
                     </Button>
-                    <Button  variant="contained" color="secondary" onClick={()=>{props.OpenClos(props.modal)}}>
+                    <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>
                       cancelar
                     </Button>
                 </div>
