@@ -10,7 +10,7 @@ const useStyles=makeStyles((theme=>({
         position: 'absolute',
         width:400,
         backgroundColor:'white',
-        border: '2px solid #000',
+        /* border: '2px solid #000', */
         boxShadow: theme.shadows[5],
         padding:"16px 32px 24px",
         top:'50%',
