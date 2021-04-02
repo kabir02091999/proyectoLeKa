@@ -70,7 +70,7 @@ const Nav = () => {
                   
 
                   <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>
-dsa
+
             </div>
             </Toolbar>
           </AppBar> 
