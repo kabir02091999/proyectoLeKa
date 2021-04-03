@@ -4,6 +4,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+
 const useStyles=makeStyles((theme=>({
 
     modal:{
@@ -69,7 +70,7 @@ const Login = (props) => {
                     />
                     <br/>
                     <div className={styles.divbotones}>
-                        <Button variant="contained" color="primary" onClick={()=>{props.openClos()}}>
+                        <Button variant="contained" color="primary" onClick={()=>{props.openClos()}}>{/* ojo aqui cuando valla a validar */}
                         accetar
                         </Button>
                         <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>

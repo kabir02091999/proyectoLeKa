@@ -11,6 +11,7 @@ import Login from '../vistas/Login';
 //iconos
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 //nav
 import AppBar from '@material-ui/core/AppBar'
@@ -21,6 +22,7 @@ import {Modal} from '@material-ui/core'
 //otros
 import {makeStyles, ThemeProvider} from '@material-ui/core/styles'
 import theme from '../confing/confingMUI'
+import Registro from '../vistas/Registro';
 
 //funcion
 
@@ -44,12 +46,19 @@ const Nav = () => {
 
  
   const [modal, setmodal] = useState(false)
+  const [modalRegistro, setmodalRegistro] = useState(false)
 
   const est = stylos()
 
   const openClos = ()=>{
-
+    
     setmodal(!modal)
+
+  }
+
+  const openCloseRegistro=()=>{
+    
+    setmodalRegistro(!modalRegistro)
 
   }
 
@@ -65,9 +74,11 @@ const Nav = () => {
             </div>
             <div className="botones">
                 
-                  <Button className={est.boton} variant="contained" color="primary" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
+              <Button className={est.boton} variant="contained" color="primary" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
 
-                  <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>
+              <Button className={est.boton} variant="contained" color="primary" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
+
+              <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>
 
             </div>
             </Toolbar>
@@ -76,11 +87,25 @@ const Nav = () => {
         </ThemeProvider>
         
         <Modal 
-          open={modal}
-          onClose={openClos} >
+        open={modal}
+        onClose={openClos}>
 
-           <div><Login openClos={openClos}  />  </div>
+            <div>
+              <Login openClos={openClos}  />  
+            </div>
         
+        </Modal>
+        <Modal
+        open={modalRegistro}
+        onClose={openCloseRegistro}
+        >
+
+          <div>
+
+            <Registro openCloseRegistro={openCloseRegistro} />
+
+          </div>
+
         </Modal>
         
       </div> );
