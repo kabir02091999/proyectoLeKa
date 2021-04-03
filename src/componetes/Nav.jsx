@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {
+/* import {
   Link
-} from "react-router-dom";
+} from "react-router-dom"; */
 import '../css/stilosNav.css'
 
 //vistas
@@ -24,11 +24,11 @@ import theme from '../confing/confingMUI'
 
 //funcion
 
-const maker = makeStyles( theme => ({
+/* const maker = makeStyles( theme => ({
 
   offset: theme.mixins.Toolbar
 
-}))
+})) */
 
 const stylos = makeStyles({
 
@@ -42,7 +42,7 @@ const stylos = makeStyles({
 
 const Nav = () => {
 
-  const clases = maker()
+ 
   const [modal, setmodal] = useState(false)
 
   const est = stylos()

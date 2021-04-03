@@ -31,7 +31,7 @@ const RouteNav = () => {
             
             <Route path='/' >
 
-              <h1>incio</h1>
+              <h1>inicio</h1>
 
             </Route>
 

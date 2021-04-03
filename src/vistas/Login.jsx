@@ -17,6 +17,17 @@ const useStyles=makeStyles((theme=>({
         left:'50%',
         transform:'translate(-50%,-50%)', 
         borderRadius: '20px',
+    },
+    inpus:{
+
+        width:'100%',
+        marginTop: '10px'
+
+    },divbotones:{
+
+        display: 'flex',
+        justifyContent: 'flex-end',
+
     }
 
 })))
@@ -42,25 +53,29 @@ const Login = (props) => {
                 <div>
 
                     <TextField
-                      id="filled-basic"
-                      label="correo electronico"
-                      variant="filled"                
+                        className={styles.inpus} 
+                        id="filled-basic"
+                        label="correo electronico"
+                        variant="filled"                
                     />
                     <br/>
                     <TextField
-                    id="filled-password-input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    variant="filled"
+                        className={styles.inpus}
+                        id="filled-password-input"
+                        label="Password"
+                        type="password"
+                        autoComplete="current-password"
+                        variant="filled"
                     />
                     <br/>
-                    <Button  variant="contained" color="primary" onClick={()=>{props.openClos()}}>
-                      accetar
-                    </Button>
-                    <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>
-                      cancelar
-                    </Button>
+                    <div className={styles.divbotones}>
+                        <Button variant="contained" color="primary" onClick={()=>{props.openClos()}}>
+                        accetar
+                        </Button>
+                        <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>
+                        cancelar
+                        </Button>
+                    </div>
                 </div>
 
             </div>
