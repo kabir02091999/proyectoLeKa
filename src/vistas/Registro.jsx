@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 //materia UI
 import {makeStyles} from '@material-ui/core/styles'
@@ -44,16 +44,33 @@ const Registro = (props) => {
 
     const styles=useStyles()
     const { handleSubmit} = useForm();
+    const [newUsuario, setnewUsuario] = useState({
+
+        nombre:"",
+        apellido:"",
+        gmail:"",
+        usename:"",
+        password:"",
+
+    })
     
-    const onSubmit = data => {
+    const onSubmit = () => {
         const nombre = document.getElementById("filled-basic1").value
         const apellido = document.getElementById("filled-basic2").value
         const gmail = document.getElementById("filled-basic3").value
         const username = document.getElementById("filled-basic4").value
         const password = document.getElementById("filled-password-input4").value
-        const genero = document.getElementById("filled-basic6").value
-        
-        console.log(nombre)
+        /* const genero = document.getElementById("filled-basic6").value */
+        setnewUsuario(
+
+            newUsuario.nombre=nombre,
+            newUsuario.apellido=apellido,
+            newUsuario.gmail=gmail,
+            newUsuario.usename=username,
+            newUsuario.password=password,
+            
+        )
+        console.log(newUsuario)
     };
 
     return ( 
@@ -99,7 +116,6 @@ const Registro = (props) => {
                         variant="filled"                
                     />
                     <br/>
-
                     <TextField
                         className={styles.inpus}
                         id="filled-password-input4"
