@@ -4,6 +4,9 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 const useStyles=makeStyles((theme=>({
 
@@ -57,7 +60,14 @@ const Login = (props) => {
                         className={styles.inpus} 
                         id="filled-basic"
                         label="correo electronico"
-                        variant="filled"                
+                        variant="filled" 
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                            <AccountCircle />
+                            </InputAdornment>
+                        ),
+                        }}               
                     />
                     <br/>
                     <TextField
@@ -67,6 +77,13 @@ const Login = (props) => {
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <LockOpenIcon/>
+                            </InputAdornment>
+                        ),
+                        }} 
                     />
                     <br/>
                     <div className={styles.divbotones}>

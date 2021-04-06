@@ -2,20 +2,12 @@ import React,{useState} from 'react';
 
 //materia UI
 import {makeStyles} from '@material-ui/core/styles'
-import {TextField, Checkbox} from '@material-ui/core'
+import {TextField} from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-
-//formulario
-import { useForm, Controller } from "react-hook-form";
-
-
 import InputLabel from '@material-ui/core/InputLabel';
-
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-
 
 
 const useStyles=makeStyles((theme=>({
@@ -43,21 +35,26 @@ const useStyles=makeStyles((theme=>({
         justifyContent: 'flex-end',
         marginTop:'10px'
 
+    },selecto:{
+
+
+        
+
     }
 
 })))
 
 const Registro = (props) => {
-
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
-    const { handleSubmit} = useForm();
+    
     const [cambioErrores, setcambioErrores] = useState({
 
         name:null,
         apellido:null,
         usuario:null,
         gmail:null,
+        genero:null,
         password:null,
 
     })
@@ -81,9 +78,8 @@ const Registro = (props) => {
     }
 
     const enviar= (ev) =>{
-
         ev.preventDefault();
-        if(newUsuario.name===""||newUsuario.apellido===""||newUsuario.usuario===""||newUsuario.gmail===""||newUsuario.genero===""||newUsuario.password===""){
+        if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password===""){
 
             console.log("error")
 
@@ -93,12 +89,11 @@ const Registro = (props) => {
 
         }
         console.log(newUsuario)
-
     }
 
     const cambio = (a) =>{
 
-        
+        setvarial(a.target.value)
         
         if(a.target.value===10){
 
@@ -119,11 +114,8 @@ const Registro = (props) => {
     }
     return ( 
     <div className={styles.modal}>
-
          <form  onSubmit={enviar} >
-
             <div>
-
                 <div>
                     <h2>registro</h2>
                 </div>
@@ -168,7 +160,7 @@ const Registro = (props) => {
                     />
                     <br/>
                     <FormControl >
-                        <InputLabel id="demo-simple-select-label"  >genero</InputLabel>
+                        <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? "error":"genero"}</InputLabel>
                         <Select /* ojo hau qye esat */
                             onChange={cambio}
                             labelId="demo-simple-select-label"
@@ -178,7 +170,7 @@ const Registro = (props) => {
                             }}
                             value={varial}
                         >
-                        <MenuItem value={5}>defina</MenuItem>
+                        <MenuItem value={5}>{cambioErrores.genero? "error":"genero"}</MenuItem>
                         <MenuItem value={10}>masculino</MenuItem>
                         <MenuItem value={20}>femenina</MenuItem>
                         <MenuItem value={30}>no se </MenuItem>
@@ -197,7 +189,6 @@ const Registro = (props) => {
                         onChange={onChange}
                     />
                     <br/> 
-
                     <div className={styles.divbotones}>
                         <Button variant="contained" color="primary" type="submit" type="submit">
                             accetar
@@ -206,15 +197,9 @@ const Registro = (props) => {
                             cancelar
                         </Button>
                     </div>
-
                 </div>
-
             </div>
-
         </form> 
-
-
-
     </div> );
 }
  
