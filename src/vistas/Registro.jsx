@@ -51,12 +51,22 @@ const Registro = (props) => {
     const [varial, setvarial] = useState(10)
     const styles=useStyles()
     const { handleSubmit} = useForm();
+    const [cambioErrores, setcambioErrores] = useState({
+
+        name:null,
+        apellido:null,
+        usuario:null,
+        gmail:null,
+        password:null,
+
+    })
     const [newUsuario, setnewUsuario] = useState({
 
         name:"",
         apellido:"",
         usuario:"",
         gmail:"",
+        genero:"",
         password:"",
 
     })
@@ -73,7 +83,7 @@ const Registro = (props) => {
     const enviar= (ev) =>{
 
         ev.preventDefault();
-        console.log("hola")
+        console.log(newUsuario)
 
     }
 
@@ -93,36 +103,50 @@ const Registro = (props) => {
                     <h2>registro</h2>
                 </div>
                 <div>
-                    
                     <TextField
+                        error={cambioErrores.name}
                         className={styles.inpus} 
                         id="filledbasic-1"
-                        name="apellido"
-                        label="apellido"
+                        name="name"
+                        label={cambioErrores.name? "error" : "name"}
                         variant="filled"
                         onChange={onChange}                
                     />
                     <br/>
                     <TextField
+                        error={cambioErrores.apellido}
                         className={styles.inpus} 
-                        id="filled-basic2"
+                        id="filledbasic-2"
+                        name="apellido"
+                        label={cambioErrores.apellido? "error" : "apellido"}
+                        variant="filled"
+                        onChange={onChange}                
+                    />
+                    <br/>
+                    <TextField
+                        error={cambioErrores.usuario}
+                        className={styles.inpus} 
+                        id="filled-basic-3"
                         name="usuario"
-                        label="last name"
+                        label={cambioErrores.apellido? "error" : "usuario"}
                         variant="filled" 
                         onChange={onChange}               
                     />
                     <TextField
+                        error={cambioErrores.gmail}
                         className={styles.inpus} 
-                        id="filled-basic3"
+                        id="filled-basic-4"
                         name="gmail"
-                        label="gmail"
+                        label={cambioErrores.apellido? "error" : "gmail"}
                         variant="filled"
                         onChange={onChange}                
                     />
                     <br/>
                     <FormControl >
-                        <InputLabel id="demo-simple-select-label">genero</InputLabel>
-                        <Select
+                        <InputLabel id="demo-simple-select-label"  >genero</InputLabel>
+                        <Select /* ojo hau qye esat */
+                            name="genero" 
+                            onChange={onChange}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             onChange={cambio}
@@ -135,10 +159,11 @@ const Registro = (props) => {
                     </FormControl>
                     <br/>
                     <TextField
+                        error={cambioErrores.password}
                         className={styles.inpus}
-                        id="filled-password-input4"
+                        id="filled-password-input-5"
                         name="password"
-                        label="Password"
+                        label={cambioErrores.apellido? "error" : "password"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
