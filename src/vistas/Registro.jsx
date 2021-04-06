@@ -41,6 +41,7 @@ const useStyles=makeStyles((theme=>({
 
         display: 'flex',
         justifyContent: 'flex-end',
+        marginTop:'10px'
 
     }
 
@@ -48,7 +49,7 @@ const useStyles=makeStyles((theme=>({
 
 const Registro = (props) => {
 
-    const [varial, setvarial] = useState(10)
+    const [varial, setvarial] = useState(5)
     const styles=useStyles()
     const { handleSubmit} = useForm();
     const [cambioErrores, setcambioErrores] = useState({
@@ -73,7 +74,6 @@ const Registro = (props) => {
     
     const onChange = (ev)=>{
         
-        console.log(ev.target.value)
         setnewUsuario(
             {...newUsuario , 
             [ev.target.name] : ev.target.value})
@@ -83,13 +83,38 @@ const Registro = (props) => {
     const enviar= (ev) =>{
 
         ev.preventDefault();
+        if(newUsuario.name===""||newUsuario.apellido===""||newUsuario.usuario===""||newUsuario.gmail===""||newUsuario.genero===""||newUsuario.password===""){
+
+            console.log("error")
+
+        }else{
+
+            console.log("todos los datos estan llenos")
+
+        }
         console.log(newUsuario)
 
     }
 
     const cambio = (a) =>{
 
-        setvarial(a.target.value)
+        
+        
+        if(a.target.value===10){
+
+            newUsuario.genero="masculino"
+
+        }else if(a.target.value===20){
+
+            newUsuario.genero="femenina"
+
+        }else if(a.target.value===30){
+
+            newUsuario.genero="no sabe"
+
+        }
+        
+        console.log(newUsuario.genero)
 
     }
     return ( 
@@ -145,13 +170,15 @@ const Registro = (props) => {
                     <FormControl >
                         <InputLabel id="demo-simple-select-label"  >genero</InputLabel>
                         <Select /* ojo hau qye esat */
-                            name="genero" 
-                            onChange={onChange}
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
                             onChange={cambio}
+                            labelId="demo-simple-select-label"
+                            inputProps={{
+                                name: 'genero',
+                                id: 'age-native-simple',
+                            }}
                             value={varial}
                         >
+                        <MenuItem value={5}>defina</MenuItem>
                         <MenuItem value={10}>masculino</MenuItem>
                         <MenuItem value={20}>femenina</MenuItem>
                         <MenuItem value={30}>no se </MenuItem>
