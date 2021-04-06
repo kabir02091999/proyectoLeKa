@@ -11,6 +11,13 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { useForm, Controller } from "react-hook-form";
 
 
+import InputLabel from '@material-ui/core/InputLabel';
+
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+
+
+
 const useStyles=makeStyles((theme=>({
 
     modal:{
@@ -41,42 +48,44 @@ const useStyles=makeStyles((theme=>({
 
 const Registro = (props) => {
 
-
+    const [varial, setvarial] = useState(10)
     const styles=useStyles()
     const { handleSubmit} = useForm();
     const [newUsuario, setnewUsuario] = useState({
 
-        nombre:"",
+        name:"",
         apellido:"",
+        usuario:"",
         gmail:"",
-        usename:"",
         password:"",
 
     })
     
-    const onSubmit = () => {
-        const nombre = document.getElementById("filled-basic1").value
-        const apellido = document.getElementById("filled-basic2").value
-        const gmail = document.getElementById("filled-basic3").value
-        const username = document.getElementById("filled-basic4").value
-        const password = document.getElementById("filled-password-input4").value
-        /* const genero = document.getElementById("filled-basic6").value */
+    const onChange = (ev)=>{
+        
+        console.log(ev.target.value)
         setnewUsuario(
+            {...newUsuario , 
+            [ev.target.name] : ev.target.value})
+ 
+    }
 
-            newUsuario.nombre=nombre,
-            newUsuario.apellido=apellido,
-            newUsuario.gmail=gmail,
-            newUsuario.usename=username,
-            newUsuario.password=password,
-            
-        )
-        console.log(newUsuario)
-    };
+    const enviar= (ev) =>{
 
+        ev.preventDefault();
+        console.log("hola")
+
+    }
+
+    const cambio = (a) =>{
+
+        setvarial(a.target.value)
+
+    }
     return ( 
     <div className={styles.modal}>
 
-         <form onSubmit={handleSubmit(onSubmit)}>
+         <form  onSubmit={enviar} >
 
             <div>
 
@@ -84,37 +93,46 @@ const Registro = (props) => {
                     <h2>registro</h2>
                 </div>
                 <div>
-
-                     <TextField
+                    
+                    <TextField
                         className={styles.inpus} 
-                        id="filled-basic1"
-                        name="name"
-                        label="name"
-                        variant="filled"                
+                        id="filledbasic-1"
+                        name="apellido"
+                        label="apellido"
+                        variant="filled"
+                        onChange={onChange}                
                     />
                     <br/>
                     <TextField
                         className={styles.inpus} 
                         id="filled-basic2"
-                        name="last name"
+                        name="usuario"
                         label="last name"
-                        variant="filled"                
+                        variant="filled" 
+                        onChange={onChange}               
                     />
                     <TextField
                         className={styles.inpus} 
                         id="filled-basic3"
-                        name="email"
-                        label="email"
-                        variant="filled"                
+                        name="gmail"
+                        label="gmail"
+                        variant="filled"
+                        onChange={onChange}                
                     />
                     <br/>
-                    <TextField
-                        className={styles.inpus} 
-                        id="filled-basic4"
-                        name="username"
-                        label="Username"
-                        variant="filled"                
-                    />
+                    <FormControl >
+                        <InputLabel id="demo-simple-select-label">genero</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            onChange={cambio}
+                            value={varial}
+                        >
+                        <MenuItem value={10}>masculino</MenuItem>
+                        <MenuItem value={20}>femenina</MenuItem>
+                        <MenuItem value={30}>no se </MenuItem>
+                        </Select>
+                    </FormControl>
                     <br/>
                     <TextField
                         className={styles.inpus}
@@ -124,11 +142,12 @@ const Registro = (props) => {
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
+                        onChange={onChange}
                     />
                     <br/> 
 
                     <div className={styles.divbotones}>
-                        <Button variant="contained" color="primary" type="submit">
+                        <Button variant="contained" color="primary" type="submit" type="submit">
                             accetar
                         </Button>
                         <Button  variant="contained" color="secondary" onClick={()=>{props.openCloseRegistro()}} >
