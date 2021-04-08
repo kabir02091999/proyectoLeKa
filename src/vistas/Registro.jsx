@@ -48,6 +48,7 @@ const Registro = (props) => {
     
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
+    const [clonpassword, setclonpassword] = useState("")
     
     const [cambioErrores, setcambioErrores] = useState({
 
@@ -59,6 +60,7 @@ const Registro = (props) => {
         password:false,
 
     })
+
     const [newUsuario, setnewUsuario] = useState({
 
         name:"",
@@ -69,21 +71,15 @@ const Registro = (props) => {
         password:"",
 
     })
-    const [clonpassword, setclonpassword] = useState("")
     
-    const onChange = (ev)=>{
-        
+    const onChange = (ev)=>{ 
         setnewUsuario(
             {...newUsuario , 
             [ev.target.name] : ev.target.value})
- 
     }
 
     const clonclave = (ev) =>{
-
         setclonpassword(ev.target.value)
-        
-
     }
 
     const enviar= (ev) =>{
@@ -136,7 +132,6 @@ const Registro = (props) => {
             
 
         }
-        console.log(newUsuario)
     }
 
     const cambio = (a) =>{
