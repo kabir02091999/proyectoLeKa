@@ -8,6 +8,10 @@ import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import EmailIcon from '@material-ui/icons/Email';
 
 
 
@@ -38,7 +42,7 @@ const useStyles=makeStyles((theme=>({
 
     },selecto:{
 
-
+        width:"100%"
 
     }
 
@@ -169,7 +173,14 @@ const Registro = (props) => {
                         name="name"
                         label={cambioErrores.name ? "error" : "name"}
                         variant="filled"
-                        onChange={onChange}                
+                        onChange={onChange}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <AccountCircleIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }}                
                     />
                     <br/>
                     <TextField
@@ -179,7 +190,15 @@ const Registro = (props) => {
                         name="apellido"
                         label={cambioErrores.apellido? "error" : "apellido"}
                         variant="filled"
-                        onChange={onChange}                
+                        onChange={onChange}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <AccountCircleIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }} 
+                                        
                     />
                     <br/>
                     <TextField
@@ -189,7 +208,13 @@ const Registro = (props) => {
                         name="usuario"
                         label={cambioErrores.usuario? "error" : "usuario"}
                         variant="filled" 
-                        onChange={onChange}               
+                        onChange={onChange}InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <AccountCircleIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }}               
                     />
                     <TextField
                         error={cambioErrores.gmail}
@@ -198,10 +223,17 @@ const Registro = (props) => {
                         name="gmail"
                         label={cambioErrores.gmail? "error" : "gmail"}
                         variant="filled"
-                        onChange={onChange}                
+                        onChange={onChange}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <EmailIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }}                
                     />
                     <br/>
-                    <FormControl >
+                    <FormControl className={styles.selecto} >
                         <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? "error":"genero"}</InputLabel>
                         <Select /* ojo hau qye esat */
                             onChange={cambio}
@@ -229,6 +261,13 @@ const Registro = (props) => {
                         autoComplete="current-password"
                         variant="filled"
                         onChange={onChange}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <LockOpenIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }} 
                     />
                     <TextField
                         error={cambioErrores.password}
@@ -240,6 +279,13 @@ const Registro = (props) => {
                         autoComplete="current-password"
                         variant="filled"
                         onChange={clonclave}
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <LockOpenIcon color="primary"/>
+                            </InputAdornment>
+                        ),
+                        }} 
                     />
                     <br/> 
                     <div className={styles.divbotones}>
