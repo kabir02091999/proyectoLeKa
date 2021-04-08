@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 //material ui
 import {makeStyles} from '@material-ui/core/styles'
@@ -40,12 +40,45 @@ const useStyles=makeStyles((theme=>({
 const Login = (props) => {
     
     const styles=useStyles()
+    const [entrar, setentrar] = useState({
+        correo:"",
+        password:""
+    })
+    const [errores, seterrores] = useState({
+
+        correo:false,
+        password:false
+
+    })
+
+    const envioState = (ev) =>{
+        console.log(ev.target.value)
+        setentrar({...entrar,[ev.target.name] : ev.target.value})
+    }
     
+    const enviobase = (ev) =>{
+        const cues = {
+            correo:false,
+            password:false
+        }
+        ev.preventDefault();
+        if(entrar.correo===""||entrar.correo.indexOf("@")===-1||entrar.correo.indexOf(".com")===-1){
+            cues.correo=true
+        }else if(entrar.password===""){
+            cues.password=true
+        }else {
+            console.log("correto")
+            props.openClos()
+        }
+        seterrores(cues)
+
+    }
+
     return ( 
     
     <div className={styles.modal}>
         
-        <form >
+        <form onSubmit={enviobase} >
 
             <div >
 
@@ -55,11 +88,13 @@ const Login = (props) => {
 
                 </div>
                 <div>
-
                     <TextField
                         className={styles.inpus} 
+                        error={errores.correo}
                         id="filled-basic"
-                        label="correo electronico"
+                        onChange={envioState}
+                        name="correo"
+                        label={ errores.correo ? "error" : "correo electronico"}
                         variant="filled" 
                         InputProps={{
                         startAdornment: (
@@ -72,8 +107,11 @@ const Login = (props) => {
                     <br/>
                     <TextField
                         className={styles.inpus}
+                        error={errores.password}
                         id="filled-password-input"
-                        label="Password"
+                        onChange={envioState}
+                        name="password"
+                        label={errores.password? "error":"Password"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
@@ -87,7 +125,7 @@ const Login = (props) => {
                     />
                     <br/>
                     <div className={styles.divbotones}>
-                        <Button variant="contained" color="primary" onClick={()=>{props.openClos()}}>{/* ojo aqui cuando valla a validar */}
+                        <Button variant="contained" color="primary" type="submit" >{/* ojo aqui cuando valla a validar */}
                         accetar
                         </Button>
                         <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>
