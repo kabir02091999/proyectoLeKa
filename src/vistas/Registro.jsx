@@ -45,17 +45,18 @@ const useStyles=makeStyles((theme=>({
 })))
 
 const Registro = (props) => {
+    
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
     
     const [cambioErrores, setcambioErrores] = useState({
 
-        name:null,
-        apellido:null,
-        usuario:null,
-        gmail:null,
-        genero:null,
-        password:null,
+        name:false,
+        apellido:false,
+        usuario:false,
+        gmail:false,
+        genero:false,
+        password:false,
 
     })
     const [newUsuario, setnewUsuario] = useState({
@@ -68,6 +69,7 @@ const Registro = (props) => {
         password:"",
 
     })
+    const [clonpassword, setclonpassword] = useState("")
     
     const onChange = (ev)=>{
         
@@ -77,14 +79,45 @@ const Registro = (props) => {
  
     }
 
+    const clonclave = (ev) =>{
+
+        setclonpassword(ev.target.value)
+        
+
+    }
+
     const enviar= (ev) =>{
+        const v = {
+
+                name:false,
+                apellido:false,
+                usuario:false,
+                genero:false,
+                gmail:false,
+                password:false,
+
+            }
         ev.preventDefault();
-        if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password===""){
-
-            console.log("error")
-
+        if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password==="" || clonpassword === ""){
+            if(newUsuario.name==="" ){
+                v.name=true
+            }if(newUsuario.apellido==="" ){
+                v.apellido=true
+            }if(newUsuario.usuario==="" ){
+                v.usuario=true
+            }if(newUsuario.gmail==="" ){
+                v.gmaila=true
+            }if(newUsuario.genero==="" ){
+                v.genero=true
+            }if(newUsuario.password==="" ){
+                v.password=true
+            }if(clonpassword === ""){
+                setclonpassword(true)
+            }    
+            setcambioErrores(v)
         }else{
-
+            const a=newUsuario.name
+            console.log(a.indexOf("a","b"))
             console.log("todos los datos estan llenos")
 
         }
@@ -109,9 +142,8 @@ const Registro = (props) => {
 
         }
         
-        console.log(newUsuario.genero)
-
     }
+
     return ( 
     <div className={styles.modal}>
          <form  onSubmit={enviar} >
@@ -125,7 +157,7 @@ const Registro = (props) => {
                         className={styles.inpus} 
                         id="filledbasic-1"
                         name="name"
-                        label={cambioErrores.name? "error" : "name"}
+                        label={cambioErrores.name ? "error" : "name"}
                         variant="filled"
                         onChange={onChange}                
                     />
@@ -182,11 +214,22 @@ const Registro = (props) => {
                         className={styles.inpus}
                         id="filled-password-input-5"
                         name="password"
-                        label={cambioErrores.apellido? "error" : "password"}
+                        label={cambioErrores.password? "error" : "password"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
                         onChange={onChange}
+                    />
+                    <TextField
+                        error={cambioErrores.password}
+                        className={styles.inpus}
+                        id="filled-password-input-6"
+                        name="password"
+                        label={cambioErrores.password? "error" : "password"}
+                        type="password"
+                        autoComplete="current-password"
+                        variant="filled"
+                        onChange={clonclave}
                     />
                     <br/> 
                     <div className={styles.divbotones}>
