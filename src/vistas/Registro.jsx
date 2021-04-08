@@ -10,6 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 
 
+
 const useStyles=makeStyles((theme=>({
 
     modal:{
@@ -106,7 +107,7 @@ const Registro = (props) => {
             }if(newUsuario.usuario==="" ){
                 v.usuario=true
             }if(newUsuario.gmail==="" ){
-                v.gmaila=true
+                v.gmail=true
             }if(newUsuario.genero==="" ){
                 v.genero=true
             }if(newUsuario.password==="" ){
@@ -117,8 +118,23 @@ const Registro = (props) => {
             setcambioErrores(v)
         }else{
             const a=newUsuario.name
-            console.log(a.indexOf("a","b"))
-            console.log("todos los datos estan llenos")
+            console.log(newUsuario.gmail.indexOf("@"))
+
+            if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
+
+                v.gmail=true
+
+            }if(newUsuario.password!=clonpassword){
+
+                v.password=true
+
+            }else{
+
+                console.log("todos los datos estan llenos")
+
+            }
+            setcambioErrores(v)
+            
 
         }
         console.log(newUsuario)
@@ -177,7 +193,7 @@ const Registro = (props) => {
                         className={styles.inpus} 
                         id="filled-basic-3"
                         name="usuario"
-                        label={cambioErrores.apellido? "error" : "usuario"}
+                        label={cambioErrores.usuario? "error" : "usuario"}
                         variant="filled" 
                         onChange={onChange}               
                     />
@@ -186,7 +202,7 @@ const Registro = (props) => {
                         className={styles.inpus} 
                         id="filled-basic-4"
                         name="gmail"
-                        label={cambioErrores.apellido? "error" : "gmail"}
+                        label={cambioErrores.gmail? "error" : "gmail"}
                         variant="filled"
                         onChange={onChange}                
                     />
