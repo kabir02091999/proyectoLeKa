@@ -32,6 +32,9 @@ import Registro from '../vistas/Registro';
 
 })) */
 
+
+
+
 const stylos = makeStyles({
 
   boton:{
@@ -78,7 +81,7 @@ const Nav = () => {
 
               <Button className={est.boton} variant="contained" color="primary" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
 
-              <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>
+              <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>{/* ojo */}
 
             </div>
             </Toolbar>
@@ -98,6 +101,7 @@ const Nav = () => {
         <Modal
         open={modalRegistro}
         onClose={openCloseRegistro}
+        className="hola"
         >
 
           <div>

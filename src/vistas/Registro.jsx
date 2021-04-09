@@ -129,7 +129,8 @@ const Registro = (props) => {
 
             }else{
 
-                console.log("todos los datos estan llenos")
+                console.log(newUsuario)
+                props.openCloseRegistro()
 
             }
             setcambioErrores(v)
@@ -274,7 +275,7 @@ const Registro = (props) => {
                         className={styles.inpus}
                         id="filled-password-input-6"
                         name="password"
-                        label={cambioErrores.password? "error" : "password"}
+                        label={cambioErrores.password? "error" : "Confirmpassword"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"

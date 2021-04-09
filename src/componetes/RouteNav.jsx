@@ -25,7 +25,7 @@ const RouteNav = () => {
 
             <Route path='/login'>
 
-              <Login/>
+              {/* <Login/> */}
 
             </Route>
             
