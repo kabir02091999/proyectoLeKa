@@ -45,17 +45,14 @@ const Login = (props) => {
         password:""
     })
     const [errores, seterrores] = useState({
-
         correo:false,
         password:false
-
     })
-
     const envioState = (ev) =>{
         console.log(ev.target.value)
         setentrar({...entrar,[ev.target.name] : ev.target.value})
     }
-    
+
     const enviobase = (ev) =>{
         const cues = {
             correo:false,
@@ -71,7 +68,6 @@ const Login = (props) => {
             props.openClos()
         }
         seterrores(cues)
-
     }
 
     return ( 

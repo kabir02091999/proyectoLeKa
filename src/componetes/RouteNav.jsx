@@ -7,6 +7,7 @@ import {
 
 //vistas
 import Login from '../vistas/Login';
+import Inicio from './Inicio';
 
 
 //componentes
@@ -31,7 +32,7 @@ const RouteNav = () => {
             
             <Route path='/' >
 
-              <h1>inicio y que tal</h1>
+              <Inicio/>
 
             </Route>
 

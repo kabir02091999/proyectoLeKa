@@ -21,18 +21,14 @@ import {Modal} from '@material-ui/core'
 
 //otros
 import {makeStyles, ThemeProvider} from '@material-ui/core/styles'
-import theme from '../confing/confingMUI'
 import Registro from '../vistas/Registro';
 
 //funcion
-
  const maker = makeStyles( theme => ({
 
   offset:theme.mixins.toolbar,
   boton:{
-
     marginRight: "10px"
-
   }
 
 })) 
