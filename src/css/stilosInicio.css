@@ -5,3 +5,28 @@
     box-sizing: border-box;
 
 }
+
+.imagenesEventos{
+
+    background-color: blanchedalmond;
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+
+}
+
+.imagen{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.productos{
+
+    text-align: center;
+    width: 80%;
+    margin: auto;
+
+}
