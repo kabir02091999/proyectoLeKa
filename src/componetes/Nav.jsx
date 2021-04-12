@@ -69,7 +69,7 @@ const Nav = () => {
 
               <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
 
-              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}> inicio</Button>{/* ojo */}
+              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}>inicio</Button>{/* ojo */}
 
             </div>
             </Toolbar>

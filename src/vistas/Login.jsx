@@ -95,7 +95,7 @@ const Login = (props) => {
                         InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                            <AccountCircle />
+                            <AccountCircle color="primary" />
                             </InputAdornment>
                         ),
                         }}               
@@ -114,7 +114,7 @@ const Login = (props) => {
                         InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <LockOpenIcon/>
+                                <LockOpenIcon color="primary" />
                             </InputAdornment>
                         ),
                         }} 
