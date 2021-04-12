@@ -19,6 +19,9 @@ import TelegramIcon from '@material-ui/icons/Telegram';
 //imagenes
 import Captura from'../imagenes/Captura.jpg'
 
+//materia ui
+import Typography from '@material-ui/core/Typography'
+
 const Inicio = () => {
     return ( <div className="main">
 
@@ -29,17 +32,17 @@ const Inicio = () => {
         </div>
         <div className="productos" >
 
-            <h1>productos</h1>
-
+            <Typography variant="h5" color="initial">productos</Typography>
+        
         </div>
         <div className="catergoria">
-
-            <h1>categorias</h1>
+            
+            <Typography variant="h5" color="initial">categoria</Typography>
 
         </div>
         <div className="pie_de_pagina">
 
-            <h1>pie de pagina</h1>
+            <Typography variant="h5" color="initial">pie de pagina</Typography>
 
         </div>
 
