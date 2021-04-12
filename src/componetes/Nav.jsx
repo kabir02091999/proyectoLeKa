@@ -26,24 +26,16 @@ import Registro from '../vistas/Registro';
 
 //funcion
 
-/* const maker = makeStyles( theme => ({
+ const maker = makeStyles( theme => ({
 
-  offset: theme.mixins.Toolbar
-
-})) */
-
-
-
-
-const stylos = makeStyles({
-
+  offset:theme.mixins.toolbar,
   boton:{
 
     marginRight: "10px"
 
   }
 
-})
+})) 
 
 const Nav = () => {
 
@@ -51,7 +43,7 @@ const Nav = () => {
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
 
-  const est = stylos()
+  const est = maker()
 
   const openClos = ()=>{
     
@@ -67,7 +59,7 @@ const Nav = () => {
 
     return ( 
       <div>
-        <ThemeProvider theme={theme}>
+        
          <AppBar position="fixed" color="primary">
           <Toolbar>
             <div className="logo">
@@ -77,17 +69,16 @@ const Nav = () => {
             </div>
             <div className="botones">
                 
-              <Button className={est.boton} variant="contained" color="primary" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
+              <Button className={est.boton} color="inherit" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
 
-              <Button className={est.boton} variant="contained" color="primary" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
+              <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
 
-              <Button className={est.boton} variant="contained" color="primary" startIcon={<HomeIcon/>}> inicio</Button>{/* ojo */}
+              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}> inicio</Button>{/* ojo */}
 
             </div>
             </Toolbar>
           </AppBar> 
-          <div className="cambio" ></div>
-        </ThemeProvider>
+          <div className={est.offset} ></div>
         
         <Modal 
         open={modal}
