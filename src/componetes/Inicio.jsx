@@ -1,14 +1,6 @@
 import React from 'react';
 import '../css/stilosInicio.css'
 
-//iconos
-import LaptopWindowsIcon from '@material-ui/icons/LaptopWindows';
-import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
-import SportsBasketballIcon from '@material-ui/icons/SportsBasketball';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import AppleIcon from '@material-ui/icons/Apple';
-import AndroidIcon from '@material-ui/icons/Android';
-
 //iconos de pie pagina
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -27,7 +19,6 @@ import android from '../imagenes/android.jpg'
 
 //materia ui
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
 import Categoria from './Categoria';
 
 const Inicio = () => {
@@ -50,7 +41,7 @@ const Inicio = () => {
             </Typography>
             <Categoria nombre="computer" direccion={computer} direccio="/computacion" />
             <Categoria nombre="telefonia" direccion={telefonia} direccio="/telefonia" />
-             <Categoria nombre="deporte" direccion={deporte} direccio="/deporte"  />
+            <Categoria nombre="deporte" direccion={deporte} direccio="/deporte"  />
             <Categoria nombre="video juegos" direccion={videos} direccio="videos_juegos" />
             <Categoria nombre="apple" direccion={apple} direccio="/apple" />
             <Categoria nombre="Android" direccion={android} direccio="/android" />

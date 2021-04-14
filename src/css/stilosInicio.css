@@ -6,6 +6,16 @@
 
 }
 
+.catergoria{
+
+    padding: auto;
+    text-align: center;
+    padding-bottom: 20px;
+    background-color: rgb(62, 110, 182);
+    padding-top: 10px;
+
+}
+
 .imagenesEventos{
 
     background-color: blanchedalmond;
@@ -32,17 +42,12 @@
 
 }
 
-.catergoria{
 
-    padding: auto;
-    text-align: center;
-    padding-bottom: 20px;
-    background-color: rgb(62, 110, 182);
-
-}
 
 .tipografia_categoria{
 
     color: cornsilk;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
 }
