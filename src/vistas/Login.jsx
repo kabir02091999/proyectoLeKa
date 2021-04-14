@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button'
 import InputAdornment from '@material-ui/core/InputAdornment';
 import {AccountCircle} from '@material-ui/icons';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import { Typography } from '@material-ui/core'
 
 const useStyles=makeStyles((theme=>({
 
@@ -80,7 +81,7 @@ const Login = (props) => {
 
                 <div >
 
-                    <h2>login</h2>
+                    <Typography variant="h4" color="initial">login</Typography>
 
                 </div>
                 <div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 //materia UI
 import {makeStyles} from '@material-ui/core/styles'
-import {TextField} from '@material-ui/core'
+import {TextField, Typography} from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -12,6 +12,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
+
+
+import ComCoerreo from './ComCorreo';
 
 
 
@@ -129,8 +132,10 @@ const Registro = (props) => {
 
             }else{
 
-                console.log(newUsuario)
-                props.openCloseRegistro()
+                /* console.log(newUsuario); */
+                props.openclosecorreo()
+                props.openCloseRegistro() 
+                
 
             }
             setcambioErrores(v)
@@ -164,7 +169,7 @@ const Registro = (props) => {
          <form  onSubmit={enviar} >
             <div>
                 <div>
-                    <h2>registro</h2>
+                    <Typography variant="h4" color="initial">registro</Typography>
                 </div>
                 <div>
                     <TextField

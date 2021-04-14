@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-/* import {
+ import {
   Link
-} from "react-router-dom"; */
+} from "react-router-dom"; 
 import '../css/stilosNav.css'
 
 //vistas
 import Button from '@material-ui/core/Button'
 import Login from '../vistas/Login';
+import ComprCorreo from '../vistas/ComCorreo';
 
 //iconos
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -37,6 +38,7 @@ const Nav = () => {
 
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
+  const [comcorreo, setcomcorreo] = useState(false)
 
   const est = maker()
 
@@ -49,6 +51,12 @@ const Nav = () => {
   const openCloseRegistro=()=>{
     
     setmodalRegistro(!modalRegistro)
+
+  }
+
+  const openclosecorreo = ()=>{
+
+    setcomcorreo(!comcorreo)
 
   }
 
@@ -67,9 +75,9 @@ const Nav = () => {
               <Button className={est.boton} color="inherit" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
 
               <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
-
-              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}>inicio</Button>{/* ojo */}
-
+              
+              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>{/* ojo */}
+              
             </div>
             </Toolbar>
           </AppBar> 
@@ -92,7 +100,19 @@ const Nav = () => {
 
           <div>
 
-            <Registro openCloseRegistro={openCloseRegistro} />
+            <Registro openCloseRegistro={openCloseRegistro} openclosecorreo={openclosecorreo} />
+
+          </div>
+
+        </Modal>
+        <Modal
+        open={comcorreo}
+        onClose={openclosecorreo}
+        >
+
+          <div>
+
+            <ComprCorreo openclosecorreo={openclosecorreo}/>
 
           </div>
 
