@@ -30,11 +30,43 @@ const RouteNav = () => {
 
             </Route>
             
+            <Route path='/computacion'>
+
+              <h1>computacion</h1>
+              
+            </Route>
+            <Route path='/telefonia'>
+
+              <h1>telefonia</h1>
+              
+            </Route>
+            <Route path='/deporte'>
+
+              <h1>deporte</h1>
+              
+            </Route>
+            <Route path='/videos_juegos'>
+
+              <h1>video juegos</h1>
+              
+            </Route>
+            <Route path='/apple'>
+
+              <h1>apple</h1>
+              
+            </Route>
+            <Route path='/android'>
+
+              <h1>apple</h1>
+              
+            </Route>
+
             <Route path='/' >
 
               <Inicio/>
 
             </Route>
+            
 
           </Switch>
 

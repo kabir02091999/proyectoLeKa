@@ -35,7 +35,6 @@ import Registro from '../vistas/Registro';
 
 const Nav = () => {
 
- 
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
 
