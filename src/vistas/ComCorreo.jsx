@@ -42,7 +42,7 @@ const useStyle=makeStyles((theme=>({
 
     },icoClos:{
 
-        
+        /* ojo */
 
     }
 
@@ -59,15 +59,12 @@ const ComCoerreo = (props) => {
     }, [])
 
     const cerrar = ()=>{
-
         setvista(false)
-
     }
 
     return ( 
 
         <div>
-
            
             <div className={styles.modal}>
                 <div className={styles.divbotones}>
@@ -81,7 +78,6 @@ const ComCoerreo = (props) => {
                 <form  >
 
                     <TextField
-                        
                         className={styles.inpus} 
                         id="filledbasic-1"
                         name="name"
@@ -103,9 +99,8 @@ const ComCoerreo = (props) => {
                     </div>
 
                 </form>
-            </div>
 
-            
+            </div>
 
         </div>
 

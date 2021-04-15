@@ -1,18 +1,11 @@
 import React from 'react';
 
-
 //router
 import {
   Link
 } from "react-router-dom";
 
 //iconos
-import LaptopWindowsIcon from '@material-ui/icons/LaptopWindows';
-import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
-import SportsBasketballIcon from '@material-ui/icons/SportsBasketball';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import AppleIcon from '@material-ui/icons/Apple';
-import AndroidIcon from '@material-ui/icons/Android';
 import Typography from '@material-ui/core/Typography'
 
 //stylos

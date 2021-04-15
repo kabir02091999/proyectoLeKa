@@ -46,7 +46,6 @@ const Inicio = () => {
             <Categoria nombre="apple" direccion={apple} direccio="/apple" />
             <Categoria nombre="Android" direccion={android} direccio="/android" />
 
-
         </div>
         <div className="pie_de_pagina">
 

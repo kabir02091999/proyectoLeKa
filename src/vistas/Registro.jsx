@@ -13,11 +13,6 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 
-
-import ComCoerreo from './ComCorreo';
-
-
-
 const useStyles=makeStyles((theme=>({
 
     modal:{
@@ -58,25 +53,21 @@ const Registro = (props) => {
     const [clonpassword, setclonpassword] = useState("")
     
     const [cambioErrores, setcambioErrores] = useState({
-
         name:false,
         apellido:false,
         usuario:false,
         gmail:false,
         genero:false,
         password:false,
-
     })
 
     const [newUsuario, setnewUsuario] = useState({
-
         name:"",
         apellido:"",
         usuario:"",
         gmail:"",
         genero:"",
         password:"",
-
     })
     
     const onChange = (ev)=>{ 
@@ -91,14 +82,12 @@ const Registro = (props) => {
 
     const enviar= (ev) =>{
         const v = {
-
                 name:false,
                 apellido:false,
                 usuario:false,
                 genero:false,
                 gmail:false,
                 password:false,
-
             }
         ev.preventDefault();
         if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password==="" || clonpassword === ""){
@@ -121,45 +110,27 @@ const Registro = (props) => {
         }else{
             const a=newUsuario.name
             console.log(newUsuario.gmail.indexOf("@"))
-
             if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
-
                 v.gmail=true
-
             }if(newUsuario.password!=clonpassword){
-
                 v.password=true
-
             }else{
-
                 /* console.log(newUsuario); */
                 props.openclosecorreo()
                 props.openCloseRegistro() 
-                
-
             }
             setcambioErrores(v)
-            
-
         }
     }
 
     const cambio = (a) =>{
-
         setvarial(a.target.value)
-        
         if(a.target.value===10){
-
             newUsuario.genero="masculino"
-
         }else if(a.target.value===20){
-
             newUsuario.genero="femenina"
-
         }else if(a.target.value===30){
-
             newUsuario.genero="no sabe"
-
         }
         
     }

@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 //vistas
-import Login from '../vistas/Login';
 import Inicio from './Inicio';
 
 
@@ -25,8 +24,6 @@ const RouteNav = () => {
           <Switch>
 
             <Route path='/login'>
-
-              {/* <Login/> */}
 
             </Route>
             
