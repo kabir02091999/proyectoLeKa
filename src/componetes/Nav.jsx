@@ -43,21 +43,15 @@ const Nav = () => {
   const est = maker()
 
   const openClos = ()=>{
-    
     setmodal(!modal)
-
   }
 
   const openCloseRegistro=()=>{
-    
     setmodalRegistro(!modalRegistro)
-
   }
 
   const openclosecorreo = ()=>{
-
     setcomcorreo(!comcorreo)
-
   }
 
     return ( 
@@ -76,7 +70,7 @@ const Nav = () => {
 
             <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
             
-            <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>{/* ojo */}
+            <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>
             
           </div>
         </Toolbar>

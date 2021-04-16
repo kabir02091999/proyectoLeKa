@@ -50,16 +50,18 @@ const useStyle=makeStyles((theme=>({
 
 
 const ComCoerreo = (props) => {
-    const [vista, setvista] = useState(false);
-    const styles = useStyle();
     
-    useEffect(() => {
-        setvista(true)
-        console.log("hola")
-    }, [])
+    const styles = useStyle();
+    const [codigoCorreo, setcodigoCorreo] = useState("")
 
-    const cerrar = ()=>{
-        setvista(false)
+    const envioState = (ev)=>{
+        setcodigoCorreo(ev.target.value) 
+    }
+
+    const enviobase = (ev)=>{
+        ev.preventDefault();
+        console.log(codigoCorreo)
+
     }
 
     return ( 
@@ -75,9 +77,10 @@ const ComCoerreo = (props) => {
                 <Typography variant="h4" color="initial">verificacion de correo</Typography>
                 <p className={styles.divp}>a su correo se envio un codigo para para crear la cuenta</p>
 
-                <form  >
+                <form onSubmit={enviobase} >
 
                     <TextField
+                        onChange={envioState}
                         className={styles.inpus} 
                         id="filledbasic-1"
                         name="name"
@@ -93,7 +96,7 @@ const ComCoerreo = (props) => {
                     />
 
                     <div className={styles.divbotones}>
-                        <Button variant="contained" color="primary" type="submit" type="submit">
+                        <Button variant="contained" color="primary" type="submit">
                             accetar
                         </Button>
                     </div>
