@@ -63,7 +63,7 @@ const Nav = () => {
     return ( 
       <div>
         
-         <AppBar position="fixed" color="primary">
+        <AppBar position="fixed" color="primary">
           <Toolbar>
             <div className="logo">
               <Typography variant="h4">
@@ -71,25 +71,26 @@ const Nav = () => {
               </Typography>
             </div>
             <div className="botones">
-                
-              <Button className={est.boton} color="inherit" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
+              
+            <Button className={est.boton} color="inherit" startIcon={<AccountCircleIcon/>} onClick={()=>{openClos()}} >login</Button>
 
-              <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
-              
-              <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>{/* ojo */}
-              
-            </div>
-            </Toolbar>
-          </AppBar> 
-          <div className={est.offset} ></div>
+            <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
+            
+            <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>{/* ojo */}
+            
+          </div>
+        </Toolbar>
+      </AppBar> 
+          
+      <div className={est.offset} ></div>
         
         <Modal 
         open={modal}
         onClose={openClos}>
 
-            <div>
-              <Login openClos={openClos}  />  
-            </div>
+          <div>
+            <Login openClos={openClos}  />  
+          </div>
         
         </Modal>
         <Modal
@@ -97,27 +98,19 @@ const Nav = () => {
         onClose={openCloseRegistro}
         className="hola"
         >
-
           <div>
-
             <Registro openCloseRegistro={openCloseRegistro} openclosecorreo={openclosecorreo} />
-
           </div>
-
         </Modal>
         <Modal
         open={comcorreo}
         onClose={openclosecorreo}
         >
-
           <div>
-
             <ComprCorreo openclosecorreo={openclosecorreo}/>
-
           </div>
-
         </Modal>
-        
+      
       </div> );
 }
  

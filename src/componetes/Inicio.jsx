@@ -46,12 +46,18 @@ const Inicio = () => {
             <Categoria nombre="apple" direccion={apple} direccio="/apple" />
             <Categoria nombre="Android" direccion={android} direccio="/android" />
 
-        </div>
-        <div className="pie_de_pagina">
+            <div className="pie_de_pagina">
 
-            <Typography variant="h5" color="initial">pie de pagina</Typography>
+                <WhatsAppIcon className="pie_de_pagina_iconos"/>
+                <InstagramIcon className="pie_de_pagina_iconos" />
+                <TwitterIcon className="pie_de_pagina_iconos"/>
+                <FacebookIcon className="pie_de_pagina_iconos"/>
+                <TelegramIcon className="pie_de_pagina_iconos"/>
+
+            </div>
 
         </div>
+        
 
 
     </div> );
