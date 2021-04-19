@@ -27,7 +27,7 @@ const RouteNav = () => {
           
           <Route path='/usuario/administrador'>
 
-            {usuario==="administrador" ? <InicioAdministrador/> : <h1>error</h1>}
+            {usuario==="administrador" ? <InicioAdministrador setusuario={setusuario} /> : <h1>error</h1>}
 
           </Route>
 

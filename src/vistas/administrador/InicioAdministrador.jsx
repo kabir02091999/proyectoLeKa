@@ -5,10 +5,10 @@ import React from 'react';
 import NavAdminstradro from '../../componetes/administrador/NavAdminitrador';
 
 
-const InicioAdministrador = () => {
+const InicioAdministrador = (props) => {
     return ( <div>
 
-        <NavAdminstradro/>
+        <NavAdminstradro setusuario={props.setusuario} />
 
     </div> );
 }

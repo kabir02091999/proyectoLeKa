@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Link
+  useHistory
   } from "react-router-dom"; 
 
 //stylos
@@ -26,9 +26,17 @@ const maker = makeStyles( theme => ({
 
 })) 
 
-const NavAdminstradro = () => {
+const NavAdminstradro = (props) => {
 
+    const historia=useHistory()
     const est = maker()
+
+    const salir = ()=>{
+
+        historia.push("/")
+        props.setusuario("")
+
+    }
 
     return ( <div>
 
@@ -45,7 +53,7 @@ const NavAdminstradro = () => {
                 </div>
                 <div className="botones">
 
-                    <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >salir al inicio</Link></Button>
+                    <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>} onClick={()=>(salir())} >salir al inicio</Button>
 
                 </div>
             </Toolbar>
