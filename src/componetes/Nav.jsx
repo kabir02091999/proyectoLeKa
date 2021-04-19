@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
  import {
   Link
-} from "react-router-dom"; 
+  } from "react-router-dom"; 
 import '../css/stilosNav.css'
 
 //vistas
-import Button from '@material-ui/core/Button'
 import Login from '../vistas/Login';
 import ComprCorreo from '../vistas/ComCorreo';
 
@@ -18,6 +17,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import {Modal} from '@material-ui/core'
 
 //otros

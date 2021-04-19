@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { useHistory } from "react-router-dom";
 
 //material ui
 import {makeStyles} from '@material-ui/core/styles'
@@ -40,6 +41,7 @@ const useStyles=makeStyles((theme=>({
 
 const Login = (props) => {
     
+    const historia=useHistory()
     const styles=useStyles()
     const [entrar, setentrar] = useState({
         correo:"",
@@ -59,6 +61,8 @@ const Login = (props) => {
             correo:false,
             password:false
         }
+        
+        console.log("hola")
         ev.preventDefault();
         if(entrar.correo===""||entrar.correo.indexOf("@")===-1||entrar.correo.indexOf(".com")===-1){
             cues.correo=true
@@ -66,8 +70,10 @@ const Login = (props) => {
             cues.password=true
         }else {
             console.log("correto")
-            props.openClos()
+            
+            /* props.openClos() */ 
         }
+        historia.push("/computacion");
         seterrores(cues)
     }
 
@@ -122,9 +128,11 @@ const Login = (props) => {
                     />
                     <br/>
                     <div className={styles.divbotones}>
-                        <Button variant="contained" color="primary" type="submit" >{/* ojo aqui cuando valla a validar */}
-                        accetar
-                        </Button>
+                        
+                            <Button variant="contained" color="primary" /* href={direccion} */  type="submit"  >{/* ojo aqui cuando valla a validar */}
+                                accetar 
+                            </Button>
+                        
                         <Button  variant="contained" color="secondary" onClick={()=>{props.openClos()}}>
                         cancelar
                         </Button>

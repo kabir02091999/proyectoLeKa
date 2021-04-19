@@ -94,7 +94,7 @@ const ComCoerreo = (props) => {
                         ),
                         }} 
                     />
-
+                    
                     <div className={styles.divbotones}>
                         <Button variant="contained" color="primary" type="submit">
                             accetar

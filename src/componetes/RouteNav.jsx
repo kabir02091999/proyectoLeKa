@@ -1,75 +1,79 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 
+
 //vistas
 import Inicio from './Inicio';
-
+import InicioAdministrador from '../vistas/administrador/InicioAdministrador';
 
 //componentes
 import Nav from './Nav';
 
 
 const RouteNav = () => {
-    return ( 
-      <div>
-        
-        <Router>
-  
-          <Nav/>
+    
+  const [usuario, setusuario] = useState("administrador")
 
-          <Switch>
+  return ( 
+    <div>
+      
+      <Router>
 
-            <Route path='/login'>
+        <Switch>
+          
+          <Route path='/usuario/administrador'>
 
-            </Route>
+            {usuario==="administrador" ? <InicioAdministrador/> : <h1>error</h1>}
+
+          </Route>
+
+          <Route path='/computacion'>
+            <Nav/>
+            <h1>computacion</h1>
             
-            <Route path='/computacion'>
-
-              <h1>computacion</h1>
-              
-            </Route>
-            <Route path='/telefonia'>
-
-              <h1>telefonia</h1>
-              
-            </Route>
-            <Route path='/deporte'>
-
-              <h1>deporte</h1>
-              
-            </Route>
-            <Route path='/videos_juegos'>
-
-              <h1>video juegos</h1>
-              
-            </Route>
-            <Route path='/apple'>
-
-              <h1>apple</h1>
-              
-            </Route>
-            <Route path='/android'>
-
-              <h1>apple</h1>
-              
-            </Route>
-
-            <Route path='/' >
-
-              <Inicio/>
-
-            </Route>
+          </Route>
+          <Route path='/telefonia'>
+            <Nav/>
+            <h1>telefonia</h1>
             
+          </Route>
+          <Route path='/deporte'>
+            <Nav/>
+            <h1>deporte</h1>
+            
+          </Route>
+          <Route path='/videos_juegos'>
+            <Nav/>
+            <h1>video juegos</h1>
+            
+          </Route>
+          <Route path='/apple'>
+            <Nav/>
+            <h1>apple</h1>
+            
+          </Route>
+          <Route path='/android'>
+            <Nav/>
+            <h1>apple</h1>
+            
+          </Route>
 
-          </Switch>
+          <Route path='/' >
+            <Nav/>
+            <Inicio/>
 
-        </Router>
-        
-      </div> );
+          </Route>
+          
+
+        </Switch>
+
+      </Router>
+      
+    </div> );
 }
  
 export default RouteNav;
