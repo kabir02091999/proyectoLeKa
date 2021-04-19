@@ -16,7 +16,7 @@ import Nav from './Nav';
 
 const RouteNav = () => {
     
-  const [usuario, setusuario] = useState("administrador")
+  const [usuario, setusuario] = useState("")
 
   return ( 
     <div>
@@ -32,38 +32,38 @@ const RouteNav = () => {
           </Route>
 
           <Route path='/computacion'>
-            <Nav/>
+            <Nav setusuario={setusuario} />
             <h1>computacion</h1>
             
           </Route>
           <Route path='/telefonia'>
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <h1>telefonia</h1>
             
           </Route>
           <Route path='/deporte'>
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <h1>deporte</h1>
             
           </Route>
           <Route path='/videos_juegos'>
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <h1>video juegos</h1>
             
           </Route>
           <Route path='/apple'>
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <h1>apple</h1>
             
           </Route>
           <Route path='/android'>
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <h1>apple</h1>
             
           </Route>
 
           <Route path='/' >
-            <Nav/>
+            <Nav setusuario={setusuario}/>
             <Inicio/>
 
           </Route>

@@ -34,7 +34,7 @@ import Registro from '../vistas/Registro';
 
 })) 
 
-const Nav = () => {
+const Nav = (props) => {
 
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
@@ -83,7 +83,7 @@ const Nav = () => {
         onClose={openClos}>
 
           <div>
-            <Login openClos={openClos}  />  
+            <Login openClos={openClos} setusuario={props.setusuario}  />  
           </div>
         
         </Modal>

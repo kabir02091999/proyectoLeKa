@@ -70,10 +70,10 @@ const Login = (props) => {
             cues.password=true
         }else {
             console.log("correto")
-            
-            /* props.openClos() */ 
+            props.openClos()
+            props.setusuario("administrador")  
         }
-        historia.push("/computacion");
+        historia.push("/usuario/administrador"); 
         seterrores(cues)
     }
 
