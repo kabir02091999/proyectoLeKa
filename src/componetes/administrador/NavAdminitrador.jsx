@@ -32,15 +32,13 @@ const NavAdminstradro = (props) => {
     const est = maker()
 
     const salir = ()=>{
-
         historia.push("/")
         props.setusuario("")
-
     }
 
     return ( <div>
 
-        <AppBar position="fixed" color="primary">
+        <AppBar position="fixed" color="secondary">
           <Toolbar>
                 <div className="logo">
                     <Typography variant="h4">
