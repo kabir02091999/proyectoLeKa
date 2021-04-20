@@ -56,6 +56,7 @@ const NavAdminstradro = (props) => {
                 </div>
             </Toolbar>
         </AppBar>
+        <div className={est.offset}></div>
 
     </div> );
 }
