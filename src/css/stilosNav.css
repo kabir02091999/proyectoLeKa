@@ -45,20 +45,34 @@ select {
      width: 250px;
   }
 
-  select:focus{ outline: none;}
+select:focus{ outline: none;}
 
 
-  .hola{
+.hola{
 
-    max-height:100%;
-    overflow-y:auto;
+max-height:100%;
+overflow-y:auto;
 
-  }
+}
 
-  .link{
+.link{
 
-    text-decoration: none;
-    color: blanchedalmond;
+text-decoration: none;
+color: blanchedalmond;
 
-  }
+}
+
+.cambios{
+
+    
+    height: 54px;
+    
+
+}
+
+.cambiosaaa{
+
+    height: 64px;
+
+}
 

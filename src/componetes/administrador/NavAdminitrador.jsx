@@ -19,10 +19,15 @@ import HomeIcon from '@material-ui/icons/Home';
 //fucion
 const maker = makeStyles( theme => ({
 
-  offset:theme.mixins.toolbar,
   boton:{
     marginRight: "10px"
   }
+  ,appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+    },di:{
+
+        display: 'inline-block',
+    }
 
 })) 
 
@@ -36,10 +41,11 @@ const NavAdminstradro = (props) => {
         props.setusuario("")
     }
 
-    return ( <div>
+    return ( <div className={est.di} >
 
-        <AppBar position="fixed" color="secondary">
-          <Toolbar>
+        <AppBar className={est.appBar} position="fixed" color="secondary">
+            <Toolbar>
+                
                 <div className="logo">
                     <Typography variant="h4">
                         logo
@@ -56,7 +62,6 @@ const NavAdminstradro = (props) => {
                 </div>
             </Toolbar>
         </AppBar>
-        <div className={est.offset}></div>
 
     </div> );
 }
