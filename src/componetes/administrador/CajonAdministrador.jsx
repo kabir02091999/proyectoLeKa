@@ -8,7 +8,8 @@ import '../../css/stilosNav.css'
 
 //funcion
 const estylos = makeStyles((theme)=>({
-
+    
+    offset:theme.mixins.toolbar,
     drawer: {
         width: 250,
         flexShrink: 0,
@@ -31,7 +32,7 @@ const CajonAdministrador = (prosp) => {
         classes={{
           paper: clases.drawerPaper,
         }} >
-            <div className="cambiosaaa"></div>
+            <div className={clases.offset}></div>
             
         <div className={clases.drawerContainer}>
 

@@ -52,7 +52,7 @@ const InicioAdministrador = (props) => {
             <CajonAdministrador setVistapre={setVistapre} /> 
             
             <div className={classes.content}>
-                <div className="cambios"></div>
+                <div className={classes.offset}></div>
                 
                 {Vistapre.inicio && <InicioAd/> }
                 {Vistapre.usuario && <UsuariosAd/> }
