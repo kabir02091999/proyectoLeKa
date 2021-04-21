@@ -52,7 +52,7 @@ const Login = (props) => {
         password:false
     })
     const envioState = (ev) =>{
-        console.log(ev.target.value)
+        /* console.log(ev.target.value) */
         setentrar({...entrar,[ev.target.name] : ev.target.value})
     }
 
@@ -62,14 +62,14 @@ const Login = (props) => {
             password:false
         }
         
-        console.log("hola")
+        /* console.log("hola") */
         ev.preventDefault();
         if(entrar.correo===""||entrar.correo.indexOf("@")===-1||entrar.correo.indexOf(".com")===-1){
             cues.correo=true
         }else if(entrar.password===""){
             cues.password=true
         }else {
-            console.log("correto")
+            /* console.log("correto") */
             props.openClos()
             props.setusuario("administrador")  
         }

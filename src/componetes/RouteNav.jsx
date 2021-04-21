@@ -16,7 +16,7 @@ import Nav from './Nav';
 
 const RouteNav = () => {
     
-  const [usuario, setusuario] = useState("")
+  const [usuario, setusuario] = useState("")/* ojo se tiene que cambiar a un json */
 
   return ( 
     <div>
