@@ -57,7 +57,7 @@ const NavAdminstradro = (props) => {
                 </div>
                 <div className="botones">
 
-                    <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>} onClick={()=>(salir())} >salir al inicio</Button>
+                    <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>} onClick={()=>(salir())} >salir</Button>
 
                 </div>
             </Toolbar>

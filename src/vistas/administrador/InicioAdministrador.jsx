@@ -49,7 +49,7 @@ const InicioAdministrador = (props) => {
             <div className={classes.content}>
                 <div className="cambios"></div>
                 
-                {Vistapre.inicio && <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates esse ullam deleniti, veritatis quis eligendi voluptatem molestiae placeat iusto laudantium ab cupiditate autem dolorum ipsum perspiciatis modi, cum eveniet distinctio!</h1>  }
+                {Vistapre.inicio && <h1>inicio</h1>  }
                 {Vistapre.usuario && <h1>usuarios</h1> }
                 {Vistapre.Nproducto && <h1>productos</h1> }
                 {Vistapre.Eproducto && <h1>eliminar productos</h1> }
