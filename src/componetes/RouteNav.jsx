@@ -15,8 +15,18 @@ import Nav from './Nav';
 
 
 const RouteNav = () => {
-    
-  const [usuario, setusuario] = useState("")/* ojo se tiene que cambiar a un json */
+  
+  /* ojo en el Nav hay que hacer un condicona para direciar el usuario administrador y el super administrador */
+
+  const [usuario, setusuario] = useState({
+    nombre:"",
+    apellido:"",
+    usuario:"",
+    mail:"",
+    genero:"",
+    clave:"",
+    tipo:""
+  })
 
   return ( 
     <div>
@@ -27,7 +37,7 @@ const RouteNav = () => {
           
           <Route path='/usuario/administrador'>
 
-            {usuario==="administrador" ? <InicioAdministrador setusuario={setusuario} /> : <h1>error</h1>}
+            {usuario.tipo==="administrador" ? <InicioAdministrador usuario={usuario} setusuario={setusuario}  /> : <h1>error</h1>}{/* ojo erro hay que crear una vista e error  */}
 
           </Route>
 

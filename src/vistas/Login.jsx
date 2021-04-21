@@ -61,6 +61,17 @@ const Login = (props) => {
             correo:false,
             password:false
         }
+        const usuarios= {
+
+            nombre:"kabir",
+            apellido:"contreras",
+            usuario:"kabir111",
+            mail:"kabir.02091999@gmail.com",
+            genero:"masculino",
+            clave:"kabir",
+            tipo:"administrador"
+
+        }
         
         /* console.log("hola") */
         ev.preventDefault();
@@ -71,7 +82,7 @@ const Login = (props) => {
         }else {
             /* console.log("correto") */
             props.openClos()
-            props.setusuario("administrador")  
+            props.setusuario(usuarios)  
         }
         historia.push("/usuario/administrador"); 
         seterrores(cues)
