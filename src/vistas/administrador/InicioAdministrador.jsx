@@ -54,7 +54,7 @@ const InicioAdministrador = (props) => {
             <div className={classes.content}>
                 <div className={classes.offset}></div>
                 
-                {Vistapre.inicio && <InicioAd/> }
+                {Vistapre.inicio && <InicioAd usuario={props.usuario} /> }
                 {Vistapre.usuario && <UsuariosAd/> }
                 {Vistapre.Nproducto && <Nproductos/> }
                 {Vistapre.Eproducto && <EliProductos/> }
