@@ -28,9 +28,6 @@ const estylos = makeStyles((theme)=>({
 
 }))
 
-
-
-
 const InicioAdministrador = (props) => {
     const classes= estylos()
     
@@ -38,7 +35,6 @@ const InicioAdministrador = (props) => {
         <div className={classes.root}>
             
             <NavAdminstradro  setusuario={props.setusuario} /> 
-            <div className={classes.offset}/>
             <CajonAdministrador/> 
             
             <div className={classes.content}>
