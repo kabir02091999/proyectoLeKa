@@ -7,9 +7,15 @@ import {makeStyles} from '@material-ui/core/styles'
 import NavAdminstradro from '../../componetes/administrador/NavAdminitrador';
 import CajonAdministrador from '../../componetes/administrador/CajonAdministrador';
 import InicioAd from '../../componetes/administrador/VisComAdministrador/InicioAd';
+import UsuariosAd from '../../componetes/administrador/VisComAdministrador/UsuariosAd';
+import Nproductos from '../../componetes/administrador/VisComAdministrador/NproductosAd';
+import EliProductos from '../../componetes/administrador/VisComAdministrador/EliProductos';
+import EdiProductos from '../../componetes/administrador/VisComAdministrador/EdiProductos';
 
 //css
 import '../../css/stilosNav.css'
+
+
 
 
 const estylos = makeStyles((theme)=>({
@@ -52,10 +58,10 @@ const InicioAdministrador = (props) => {
                 <div className="cambios"></div>
                 
                 {Vistapre.inicio && <InicioAd/> }
-                {Vistapre.usuario && <h1>usuarios</h1> }
-                {Vistapre.Nproducto && <h1>productos</h1> }
-                {Vistapre.Eproducto && <h1>eliminar productos</h1> }
-                {Vistapre.Edproducto && <h1>editar productos</h1> }
+                {Vistapre.usuario && <UsuariosAd/> }
+                {Vistapre.Nproducto && <Nproductos/> }
+                {Vistapre.Eproducto && <EliProductos/> }
+                {Vistapre.Edproducto && <EdiProductos/> }
 
             </div> 
 
