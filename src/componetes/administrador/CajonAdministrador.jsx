@@ -20,7 +20,7 @@ const estylos = makeStyles((theme)=>({
 
 }))
 
-const CajonAdministrador = () => {
+const CajonAdministrador = (prosp) => {
     
     const clases = estylos()
     
@@ -35,7 +35,7 @@ const CajonAdministrador = () => {
             
         <div className={clases.drawerContainer}>
 
-            <ListAdministrador/>
+            <ListAdministrador setVistapre={prosp.setVistapre} />
 
         </div>
 

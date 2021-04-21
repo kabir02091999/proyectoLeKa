@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 //material ui
 import {makeStyles} from '@material-ui/core/styles'
@@ -30,16 +30,30 @@ const estylos = makeStyles((theme)=>({
 
 const InicioAdministrador = (props) => {
     const classes= estylos()
+    const [Vistapre, setVistapre] = useState({
+
+        inicio:true,
+        usuario:false,
+        Nproducto:false,
+        Eproducto:false,
+        Edproducto:false
+
+    })
     
     return (   
         <div className={classes.root}>
             
             <NavAdminstradro  setusuario={props.setusuario} /> 
-            <CajonAdministrador/> 
+            <CajonAdministrador setVistapre={setVistapre} /> 
             
             <div className={classes.content}>
                 <div className="cambios"></div>
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates esse ullam deleniti, veritatis quis eligendi voluptatem molestiae placeat iusto laudantium ab cupiditate autem dolorum ipsum perspiciatis modi, cum eveniet distinctio!</h1>
+                
+                {Vistapre.inicio && <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates esse ullam deleniti, veritatis quis eligendi voluptatem molestiae placeat iusto laudantium ab cupiditate autem dolorum ipsum perspiciatis modi, cum eveniet distinctio!</h1>  }
+                {Vistapre.usuario && <h1>usuarios</h1> }
+                {Vistapre.Nproducto && <h1>productos</h1> }
+                {Vistapre.Eproducto && <h1>eliminar productos</h1> }
+                {Vistapre.Edproducto && <h1>editar productos</h1> }
 
             </div> 
 
