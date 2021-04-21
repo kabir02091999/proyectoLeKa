@@ -78,7 +78,7 @@ const Nav = (props) => {
           
       <div className={est.offset} ></div>
         
-        <Modal 
+        <Modal
         open={modal}
         onClose={openClos}>
 
