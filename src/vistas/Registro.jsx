@@ -32,7 +32,22 @@ const useStyles=makeStyles((theme=>({
         width:'100%',
         marginTop: '10px'
 
-    },divbotones:{
+    },inpusName:{
+
+        width:'45%',
+        display: "inline-block",
+        marginTop: '10px',
+         marginRight: '10px' 
+
+    },divName:{
+
+        textAlign: "center",
+        padding: "auto",
+        paddingLeft: "10px"
+
+    }
+    
+    ,divbotones:{
 
         display: 'flex',
         justifyContent: 'flex-end',
@@ -40,7 +55,8 @@ const useStyles=makeStyles((theme=>({
 
     },selecto:{
 
-        width:"100%"
+        width:"50%",
+        marginLeft:"27%"
 
     }
 
@@ -143,41 +159,60 @@ const Registro = (props) => {
                     <Typography variant="h4" color="initial">registro</Typography>
                 </div>
                 <div>
-                    <TextField
-                        error={cambioErrores.name}
-                        className={styles.inpus} 
-                        id="filledbasic-1"
-                        name="name"
-                        label={cambioErrores.name ? "error" : "name"}
-                        variant="filled"
-                        onChange={onChange}
-                        InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <AccountCircleIcon color="primary"/>
-                            </InputAdornment>
-                        ),
-                        }}                
-                    />
-                    <br/>
-                    <TextField
-                        error={cambioErrores.apellido}
-                        className={styles.inpus} 
-                        id="filledbasic-2"
-                        name="apellido"
-                        label={cambioErrores.apellido? "error" : "apellido"}
-                        variant="filled"
-                        onChange={onChange}
-                        InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <AccountCircleIcon color="primary"/>
-                            </InputAdornment>
-                        ),
-                        }} 
-                                        
-                    />
-                    <br/>
+                    <div className={styles.divName}>
+                        <TextField
+                            error={cambioErrores.name}
+                            className={styles.inpusName} 
+                            id="filledbasic-1"
+                            name="name"
+                            label={cambioErrores.name ? "error" : "name"}
+                            variant="filled"
+                            onChange={onChange}
+                            InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <AccountCircleIcon color="primary"/>
+                                </InputAdornment>
+                            ),
+                            }}                
+                        />
+                        <TextField
+                            error={cambioErrores.apellido}
+                            className={styles.inpusName} 
+                            id="filledbasic-2"
+                            name="apellido"
+                            label={cambioErrores.apellido? "error" : "apellido"}
+                            variant="filled"
+                            onChange={onChange}
+                            InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <AccountCircleIcon color="primary"/>
+                                </InputAdornment>
+                            ),
+                            }} 
+                                            
+                        />
+                    </div>
+                    
+                    <FormControl className={styles.selecto} >
+                        <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? "error":"genero"}</InputLabel>
+                        <Select /* ojo hau qye esat */
+                            onChange={cambio}
+                            labelId="demo-simple-select-label"
+                            inputProps={{
+                                name: 'genero',
+                                id: 'age-native-simple',
+                            }}
+                            value={varial}
+                        >
+                        <MenuItem value={5}>{cambioErrores.genero? "error":"genero"}</MenuItem>
+                        <MenuItem value={10}>masculino</MenuItem>
+                        <MenuItem value={20}>femenina</MenuItem>
+                        <MenuItem value={30}>no se </MenuItem>
+                        </Select>
+                    </FormControl>
+                    
                     <TextField
                         error={cambioErrores.usuario}
                         className={styles.inpus} 
@@ -209,24 +244,7 @@ const Registro = (props) => {
                         ),
                         }}                
                     />
-                    <br/>
-                    <FormControl className={styles.selecto} >
-                        <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? "error":"genero"}</InputLabel>
-                        <Select /* ojo hau qye esat */
-                            onChange={cambio}
-                            labelId="demo-simple-select-label"
-                            inputProps={{
-                                name: 'genero',
-                                id: 'age-native-simple',
-                            }}
-                            value={varial}
-                        >
-                        <MenuItem value={5}>{cambioErrores.genero? "error":"genero"}</MenuItem>
-                        <MenuItem value={10}>masculino</MenuItem>
-                        <MenuItem value={20}>femenina</MenuItem>
-                        <MenuItem value={30}>no se </MenuItem>
-                        </Select>
-                    </FormControl>
+                    
                     <br/>
                     <TextField
                         error={cambioErrores.password}

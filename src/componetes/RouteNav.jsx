@@ -38,7 +38,7 @@ const RouteNav = () => {
           
           <Route path='/usuario/administrador'>
 
-            {usuario.tipo==="administrador" ? <InicioAdministrador usuario={usuario} setusuario={setusuario}  /> : <ErrorBasico/> }{/* ojo erro hay que crear una vista e error  */}
+            {usuario.tipo==="administrador" ? <InicioAdministrador usuario={usuario} setusuario={setusuario}  /> : <ErrorBasico/> }
 
           </Route>
 
