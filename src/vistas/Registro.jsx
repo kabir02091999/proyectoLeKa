@@ -75,6 +75,14 @@ const Registro = (props) => {
         gmail:false,
         genero:false,
         password:false,
+        MessajeName:"",
+        MessajeApellido:"",
+        MessajeUsuario:"",
+        MessajeGmail:"",
+        MessajeGenero:"",
+        MessajePassword:"",
+        MessajePassword1:"",
+
     })
 
     const [newUsuario, setnewUsuario] = useState({
@@ -104,23 +112,38 @@ const Registro = (props) => {
                 genero:false,
                 gmail:false,
                 password:false,
+                password1:false,
+                MessajeName:"",
+                MessajeApellido:"",
+                MessajeUsuario:"",
+                MessajeGmail:"",
+                MessajeGenero:"",
+                MessajePassword:"",
+                MessajePassword1:"",
             }
         ev.preventDefault();
         if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password==="" || clonpassword === ""){
             if(newUsuario.name==="" ){
                 v.name=true
+                v.MessajeName="Esta haria se requiere"
             }if(newUsuario.apellido==="" ){
                 v.apellido=true
+                v.MessajeApellido="Esta haria se requiere"
             }if(newUsuario.usuario==="" ){
                 v.usuario=true
+                v.MessajeUsuario="Esta haria se requiere"
             }if(newUsuario.gmail==="" ){
                 v.gmail=true
+                v.MessajeGmail="Esta haria se requiere"
             }if(newUsuario.genero==="" ){
                 v.genero=true
+                v.MessajeGenero="Esta haria se requiere"
             }if(newUsuario.password==="" ){
                 v.password=true
+                v.MessajePassword="Esta haria se requiere"
             }if(clonpassword === ""){
                 setclonpassword(true)
+                v.MessajePassword1="Esta haria se requiere"
             }    
             setcambioErrores(v)
         }else{
@@ -128,8 +151,18 @@ const Registro = (props) => {
             console.log(newUsuario.gmail.indexOf("@"))
             if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
                 v.gmail=true
+                if(newUsuario.gmail.indexOf("@")===-1){
+
+                    v.MessajeGmail="hace faltal @"
+
+                }else{
+
+                    v.MessajeGmail="hace falta .com"
+
+                }
             }if(newUsuario.password!=clonpassword){
-                v.password=true
+                v.password1=true
+                v.MessajePassword1="la clace no son iguales"
             }else{
                 /* console.log(newUsuario); */
                 props.openclosecorreo()
@@ -165,7 +198,7 @@ const Registro = (props) => {
                             className={styles.inpusName} 
                             id="filledbasic-1"
                             name="name"
-                            label={cambioErrores.name ? "error" : "name"}
+                            label={cambioErrores.name ? cambioErrores.MessajeName : "name"}
                             variant="filled"
                             onChange={onChange}
                             InputProps={{
@@ -181,7 +214,7 @@ const Registro = (props) => {
                             className={styles.inpusName} 
                             id="filledbasic-2"
                             name="apellido"
-                            label={cambioErrores.apellido? "error" : "apellido"}
+                            label={cambioErrores.apellido? cambioErrores.MessajeApellido : "apellido"}
                             variant="filled"
                             onChange={onChange}
                             InputProps={{
@@ -196,7 +229,7 @@ const Registro = (props) => {
                     </div>
                     
                     <FormControl className={styles.selecto} >
-                        <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? "error":"genero"}</InputLabel>
+                        <InputLabel id="demo-simple-select-label" error={cambioErrores.genero} >{cambioErrores.genero? cambioErrores.MessajeGenero :"genero"}</InputLabel>
                         <Select /* ojo hau qye esat */
                             onChange={cambio}
                             labelId="demo-simple-select-label"
@@ -206,7 +239,7 @@ const Registro = (props) => {
                             }}
                             value={varial}
                         >
-                        <MenuItem value={5}>{cambioErrores.genero? "error":"genero"}</MenuItem>
+                        <MenuItem value={5}>{cambioErrores.genero? cambioErrores.MessajeGenero:"genero"}</MenuItem>
                         <MenuItem value={10}>masculino</MenuItem>
                         <MenuItem value={20}>femenina</MenuItem>
                         <MenuItem value={30}>no se </MenuItem>
@@ -218,7 +251,7 @@ const Registro = (props) => {
                         className={styles.inpus} 
                         id="filled-basic-3"
                         name="usuario"
-                        label={cambioErrores.usuario? "error" : "usuario"}
+                        label={cambioErrores.usuario? cambioErrores.MessajeUsuario : "usuario"}
                         variant="filled" 
                         onChange={onChange}InputProps={{
                         startAdornment: (
@@ -233,7 +266,7 @@ const Registro = (props) => {
                         className={styles.inpus} 
                         id="filled-basic-4"
                         name="gmail"
-                        label={cambioErrores.gmail? "error" : "gmail"}
+                        label={cambioErrores.gmail? cambioErrores.MessajeGmail : "gmail"}
                         variant="filled"
                         onChange={onChange}
                         InputProps={{
@@ -251,7 +284,7 @@ const Registro = (props) => {
                         className={styles.inpus}
                         id="filled-password-input-5"
                         name="password"
-                        label={cambioErrores.password? "error" : "password"}
+                        label={cambioErrores.password? cambioErrores.MessajePassword : "password"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
@@ -265,11 +298,11 @@ const Registro = (props) => {
                         }} 
                     />
                     <TextField
-                        error={cambioErrores.password}
+                        error={cambioErrores.password1}
                         className={styles.inpus}
                         id="filled-password-input-6"
                         name="password"
-                        label={cambioErrores.password? "error" : "Confirmpassword"}
+                        label={cambioErrores.password1? cambioErrores.MessajePassword1 : "Confirmpassword"}
                         type="password"
                         autoComplete="current-password"
                         variant="filled"
