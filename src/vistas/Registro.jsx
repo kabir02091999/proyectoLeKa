@@ -67,7 +67,6 @@ const Registro = (props) => {
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
     const [clonpassword, setclonpassword] = useState("")
-    
     const [cambioErrores, setcambioErrores] = useState({
         name:false,
         apellido:false,
@@ -82,7 +81,6 @@ const Registro = (props) => {
         MessajeGenero:"",
         MessajePassword:"",
         MessajePassword1:"",
-
     })
 
     const [newUsuario, setnewUsuario] = useState({
@@ -152,13 +150,9 @@ const Registro = (props) => {
             if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
                 v.gmail=true
                 if(newUsuario.gmail.indexOf("@")===-1){
-
                     v.MessajeGmail="hace faltal @"
-
                 }else{
-
                     v.MessajeGmail="hace falta .com"
-
                 }
             }if(newUsuario.password!=clonpassword){
                 v.password1=true

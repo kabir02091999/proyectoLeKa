@@ -7,8 +7,17 @@ import {TableContainer,
         TableRow,
         TableCell,
         TableBody} from '@material-ui/core'
+import UsuarioAd from './UsuarioAd';
 
-const UsuariosAd = () => {
+//apollo
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql',
+  cache: new InMemoryCache()
+});
+
+
+const UsuariosAd = (props) => {
     /* ojo botto crar nuevo usuario */
     
     return ( <div>
@@ -29,7 +38,7 @@ const UsuariosAd = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
+                        
                             {/* <TableCell>{props.usuario.nombre}</TableCell>
                             <TableCell>{props.usuario.apellido}</TableCell>
                             <TableCell>{props.usuario.usuario}</TableCell>
@@ -37,7 +46,10 @@ const UsuariosAd = () => {
                             <TableCell>{props.usuario.genero}</TableCell>
                             <TableCell>{props.usuario.clave}</TableCell>
                             <TableCell>{props.usuario.tipo}</TableCell> */}
-                        </TableRow>
+
+                            <UsuarioAd usuario={props.usuario} />
+
+                        
                     </TableBody>
                 </Table>
             </TableContainer>    
