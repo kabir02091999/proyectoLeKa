@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 //materi ui
 import {TableContainer,
@@ -10,16 +10,45 @@ import {TableContainer,
 import UsuarioAd from './UsuarioAd';
 
 //apollo
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-const client = new ApolloClient({
-  uri: 'https://rickandmortyapi.com/graphql',
-  cache: new InMemoryCache()
-});
+import { useQuery, gql } from '@apollo/client';
+
+const EXCHANGE_RATES = gql`
+  query ( $myvar : Int ){ 
+  characters ( page: $myvar ) {
+    results {
+        id
+        name
+        status
+        species
+        type
+        gender
+        created
+    }
+  }
+}
+`;
+
+function ExchangeRates(myvar) {
+  const { loading, error, data } = useQuery(EXCHANGE_RATES, {variables : {myvar}});
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return data.characters.results.map(character => (
+    
+      
+        /* {character.id} */
+      <UsuarioAd usuario={character} />
+    
+  ));
+  }
+
 
 
 const UsuariosAd = (props) => {
     /* ojo botto crar nuevo usuario */
-    
+    const [cambio, setcambio] = useState(1)
+
     return ( <div>
         
         <h1>usuarios</h1>
@@ -46,8 +75,8 @@ const UsuariosAd = (props) => {
                             <TableCell>{props.usuario.genero}</TableCell>
                             <TableCell>{props.usuario.clave}</TableCell>
                             <TableCell>{props.usuario.tipo}</TableCell> */}
-
-                            <UsuarioAd usuario={props.usuario} />
+                            {ExchangeRates(cambio)}
+                            {/* <UsuarioAd usuario={props.usuario} /> */}
 
                         
                     </TableBody>
