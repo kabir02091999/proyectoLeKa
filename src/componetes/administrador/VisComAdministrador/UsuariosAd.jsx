@@ -8,12 +8,16 @@ import {TableContainer,
         TableCell,
         TableBody} from '@material-ui/core'
 
-        
+//paginacion
+import ReactPaginate from 'react-paginate';        
 
 import UsuarioAd from './UsuarioAd';
 
 //apollo
 import { useQuery, gql } from '@apollo/client';
+
+//css
+import '../../../css/paginacion.css'
 
 const EXCHANGE_RATES = gql`
   query ( $myvar : Int ){ 
@@ -55,9 +59,14 @@ function ExchangeRates(myvar) {
 
 const UsuariosAd = (props) => {
     /* ojo botto crar nuevo usuario */
-    const [cambio, setcambio] = useState(2)
+    const [cambio, setcambio] = useState(1)
+    const handlePageClick=(datos)=>{
 
-    return ( <div>
+      setcambio(datos.selected+1)
+
+    }
+    return ( 
+    <div>
         
       <h1>usuarios</h1>
       <TableContainer>
@@ -84,9 +93,29 @@ const UsuariosAd = (props) => {
         </Table>
       </TableContainer>    
 
-        
+      <div className="paginacion">
 
-        </div> );
+        <div className="paginacion_contenido">
+
+          <ReactPaginate
+            previousLabel={'<'}
+            nextLabel={'>'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={20}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+          />
+
+        </div>
+
+      </div>
+
+    </div> );
 }
  
 export default UsuariosAd;
