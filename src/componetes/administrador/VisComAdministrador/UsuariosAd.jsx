@@ -7,6 +7,9 @@ import {TableContainer,
         TableRow,
         TableCell,
         TableBody} from '@material-ui/core'
+
+        
+
 import UsuarioAd from './UsuarioAd';
 
 //apollo
@@ -31,14 +34,19 @@ const EXCHANGE_RATES = gql`
 function ExchangeRates(myvar) {
   const { loading, error, data } = useQuery(EXCHANGE_RATES, {variables : {myvar}});
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return (
+    <TableRow>
+      <TableCell>Loading...</TableCell>
+    </TableRow>
+  );
+  if (error) return (
+    <TableRow>
+      <TableCell>Error :C</TableCell>
+    </TableRow>);
 
   return data.characters.results.map(character => (
     
-      
-        /* {character.id} */
-      <UsuarioAd usuario={character} />
+      <UsuarioAd key={character.id} usuario={character} />
     
   ));
   }
@@ -47,42 +55,37 @@ function ExchangeRates(myvar) {
 
 const UsuariosAd = (props) => {
     /* ojo botto crar nuevo usuario */
-    const [cambio, setcambio] = useState(1)
+    const [cambio, setcambio] = useState(2)
 
     return ( <div>
         
-        <h1>usuarios</h1>
-        <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>id</TableCell>
-                            <TableCell>nombre</TableCell>
-                            <TableCell>apellido</TableCell>
-                            <TableCell>usuario</TableCell>
-                            <TableCell>mail</TableCell>
-                            <TableCell>genero</TableCell>
-                            <TableCell>clave</TableCell>
-                            <TableCell>tipo</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        
-                            {/* <TableCell>{props.usuario.nombre}</TableCell>
-                            <TableCell>{props.usuario.apellido}</TableCell>
-                            <TableCell>{props.usuario.usuario}</TableCell>
-                            <TableCell>{props.usuario.mail}</TableCell>
-                            <TableCell>{props.usuario.genero}</TableCell>
-                            <TableCell>{props.usuario.clave}</TableCell>
-                            <TableCell>{props.usuario.tipo}</TableCell> */}
-                            {ExchangeRates(cambio)}
-                            {/* <UsuarioAd usuario={props.usuario} /> */}
+      <h1>usuarios</h1>
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>id</TableCell>
+              <TableCell>nombre</TableCell>
+              <TableCell>apellido</TableCell>
+              <TableCell>usuario</TableCell>
+              <TableCell>mail</TableCell>
+              <TableCell>genero</TableCell>
+              <TableCell>clave</TableCell>
+              <TableCell>tipo</TableCell>
+            </TableRow>
+          </TableHead>
+          
+          <TableBody>                   
+            
+            {ExchangeRates(cambio)}
+            
+          </TableBody>
+          
+        </Table>
+      </TableContainer>    
 
-                        
-                    </TableBody>
-                </Table>
-            </TableContainer>    
-    
+        
+
         </div> );
 }
  
