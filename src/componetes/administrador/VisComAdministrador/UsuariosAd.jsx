@@ -55,8 +55,6 @@ function ExchangeRates(myvar) {
   ));
   }
 
-
-
 const UsuariosAd = (props) => {
     /* ojo botto crar nuevo usuario */
     const [cambio, setcambio] = useState(1)
