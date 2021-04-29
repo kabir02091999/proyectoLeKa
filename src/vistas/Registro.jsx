@@ -104,20 +104,20 @@ const Registro = (props) => {
 
     const enviar= (ev) =>{
         const v = {
-                name:false,
-                apellido:false,
-                usuario:false,
-                genero:false,
-                gmail:false,
-                password:false,
-                password1:false,
-                MessajeName:"",
-                MessajeApellido:"",
-                MessajeUsuario:"",
-                MessajeGmail:"",
-                MessajeGenero:"",
-                MessajePassword:"",
-                MessajePassword1:"",
+            name:false,
+            apellido:false,
+            usuario:false,
+            genero:false,
+            gmail:false,
+            password:false,
+            password1:false,
+            MessajeName:"",
+            MessajeApellido:"",
+            MessajeUsuario:"",
+            MessajeGmail:"",
+            MessajeGenero:"",
+            MessajePassword:"",
+            MessajePassword1:"",
             }
         ev.preventDefault();
         if(newUsuario.name==="" || newUsuario.apellido==="" || newUsuario.usuario==="" || newUsuario.gmail==="" || newUsuario.genero==="" || newUsuario.password==="" || clonpassword === ""){
@@ -217,8 +217,7 @@ const Registro = (props) => {
                                     <AccountCircleIcon color="primary"/>
                                 </InputAdornment>
                             ),
-                            }} 
-                                            
+                            }}                     
                         />
                     </div>
                     

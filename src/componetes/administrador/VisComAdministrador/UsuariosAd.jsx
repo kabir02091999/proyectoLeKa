@@ -20,24 +20,16 @@ import { useQuery, gql } from '@apollo/client';
 import '../../../css/paginacion.css'
 
 const EXCHANGE_RATES = gql`
-  query ( $myvar : Int ){ 
-  characters ( page: $myvar ) {
-    results {
-        id
-        name
-        status
-        species
-        type
-        gender
-        created
-    }
+  query{
+  users{
+    email
   }
 }
 `;
 
-function ExchangeRates(myvar) {
-  const { loading, error, data } = useQuery(EXCHANGE_RATES, {variables : {myvar}});
-
+function ExchangeRates() {
+  const {loading, error, data } = useQuery(EXCHANGE_RATES);
+  debugger
   if (loading) return (
     <TableRow>
       <TableCell>Loading...</TableCell>
