@@ -19,17 +19,34 @@ import { useQuery, gql } from '@apollo/client';
 //css
 import '../../../css/paginacion.css'
 
-const EXCHANGE_RATES = gql`
-  query{
-  users{
-    email
-  }
-}
-`;
+//consulta
+import EXCHANGE_RATES from './cuere'
 
-function ExchangeRates() {
-  const {loading, error, data } = useQuery(EXCHANGE_RATES);
-  debugger
+/* const EXCHANGE_RATES = gql`
+{
+
+  	characters{
+      
+      results{
+        
+        id
+        name
+        status
+        species
+        type
+      	gender
+      	created
+        
+      }
+      
+    }
+  
+}
+`; */
+
+function ExchangeRates(myvar) {
+  const {loading, error, data } = useQuery(EXCHANGE_RATES,{variables : {myvar}});
+  /* debugger */
   if (loading) return (
     <TableRow>
       <TableCell>Loading...</TableCell>
@@ -42,7 +59,7 @@ function ExchangeRates() {
 
   return data.characters.results.map(character => (
     
-      <UsuarioAd key={character.id} usuario={character} />
+    <UsuarioAd key={character.id} usuario={character} /> 
     
   ));
   }

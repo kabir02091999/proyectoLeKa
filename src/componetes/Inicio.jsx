@@ -18,10 +18,11 @@ import apple from '../imagenes/apple.jpg'
 import android from '../imagenes/android.jpg'
 
 //materia ui
-import Typography from '@material-ui/core/Typography'
+import {Typography,withWidth} from '@material-ui/core'
 import Categoria from './Categoria';
 
-const Inicio = () => {
+
+const Inicio = (props) => {
     return ( <div className="main">
 
         <div className="imagenesEventos">
@@ -31,7 +32,7 @@ const Inicio = () => {
         </div>
         <div className="productos" >
 
-            <Typography variant="h5" color="initial">productos</Typography>
+            <Typography variant="h5" color="initial">productos: {props.width} </Typography>
         
         </div>
         <div className="catergoria">
@@ -39,13 +40,14 @@ const Inicio = () => {
             <Typography variant="h5" className="tipografia_categoria">
                 categorias
             </Typography>
+
             <Categoria nombre="computer" direccion={computer} direccio="/computacion" />
             <Categoria nombre="telefonia" direccion={telefonia} direccio="/telefonia" />
             <Categoria nombre="deporte" direccion={deporte} direccio="/deporte"  />
             <Categoria nombre="video juegos" direccion={videos} direccio="videos_juegos" />
             <Categoria nombre="apple" direccion={apple} direccio="/apple" />
             <Categoria nombre="Android" direccion={android} direccio="/android" />
-
+            
             <div className="pie_de_pagina">
 
                 <WhatsAppIcon className="pie_de_pagina_iconos"/>
@@ -63,4 +65,4 @@ const Inicio = () => {
     </div> );
 }
  
-export default Inicio;
+export default withWidth() (Inicio);

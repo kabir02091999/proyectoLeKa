@@ -15,8 +15,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   //@ts-ignore
   link: createUploadLink({
-    uri: "https://159.65.183.24/graphql/",
-  }),//ojooj
+    uri: "https://rickandmortyapi.com/graphql",
+  }),
 });
 
 ReactDOM.render(

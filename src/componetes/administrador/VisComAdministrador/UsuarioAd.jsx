@@ -4,7 +4,10 @@ import
 from '@material-ui/core'
 
 const UsuarioAd = (props) => {
-    return ( <TableRow>
+    return ( 
+    
+    <TableRow>
+    
         <TableCell>{props.usuario.id}</TableCell>
         <TableCell>{props.usuario.name}</TableCell>
         <TableCell>{props.usuario.status}</TableCell>
