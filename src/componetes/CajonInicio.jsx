@@ -15,6 +15,9 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
+//rputer
+import { useHistory } from "react-router-dom";
+
 const stylos = makeStyles(theme => ({
 
     offset:theme.mixins.toolbar,
@@ -33,6 +36,7 @@ const stylos = makeStyles(theme => ({
 
 const CajonInicio = (props) => {
     const classes = stylos()
+    const historia=useHistory()
 
     return ( 
     
@@ -90,7 +94,9 @@ const CajonInicio = (props) => {
                     </ListItemText>
 
                 </ListItem>
-                <ListItem button onClick={()=>{}}>
+                <ListItem button onClick={()=>{
+                    historia.push("/");
+                    props.openClosMenu();}}>
 
                     <ListItemIcon>
 
