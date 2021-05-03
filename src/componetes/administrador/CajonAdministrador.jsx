@@ -26,6 +26,7 @@ const CajonAdministrador = (prosp) => {
     const clases = estylos()
     
     return ( 
+    
         <Drawer 
         className={clases.drawer}
         variant="permanent"
@@ -34,13 +35,15 @@ const CajonAdministrador = (prosp) => {
         }} >
             <div className={clases.offset}></div>
             
-        <div className={clases.drawerContainer}>
+            <div className={clases.drawerContainer}>
 
-            <ListAdministrador setVistapre={prosp.setVistapre} />
+                <ListAdministrador setVistapre={prosp.setVistapre} />
 
-        </div>
+            </div>  
 
-    </Drawer> );
+        </Drawer> 
+    
+    );
 }
  
 export default CajonAdministrador;

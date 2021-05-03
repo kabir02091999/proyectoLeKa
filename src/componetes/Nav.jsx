@@ -24,10 +24,15 @@ import {Modal} from '@material-ui/core'
 //otros
 import {makeStyles} from '@material-ui/core/styles'
 import Registro from '../vistas/Registro';
+import CajonInicio from './CajonInicio';
+import CajonAdministrador from './administrador/CajonAdministrador';
 
 //funcion
  const maker = makeStyles( theme => ({
 
+  root: {
+    display: 'flex',
+  },
   offset:theme.mixins.toolbar,
   boton:{
     marginRight: "10px"
@@ -36,6 +41,8 @@ import Registro from '../vistas/Registro';
 
     color:"honeydew"
 
+  },appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   }
 
 })) 
@@ -45,8 +52,14 @@ const Nav = (props) => {
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
   const [comcorreo, setcomcorreo] = useState(false)
+  const [menu, setmenu] = useState(false)
 
   const est = maker()
+
+  const openClosMenu = ()=>{
+    setmenu(!menu)
+    console.log(menu)
+  }
 
   const openClos = ()=>{
     setmodal(!modal)
@@ -61,9 +74,9 @@ const Nav = (props) => {
   }
 
     return ( 
-      <div>
+      <div className={est.root}>
         
-        <AppBar position="fixed" color="primary">
+        <AppBar position="fixed" color="primary" className={est.appBar}>
           <Toolbar>
             <div className="logo">
               <Typography variant="h4">
@@ -78,12 +91,25 @@ const Nav = (props) => {
                 <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
                 
                 <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>
+              
               </Hidden>
 
               <Hidden smUp>
                 {/* ojo aqui va el icono menu */}
-                <IconButton aria-label="canselar" className={est.IcoMenu} > < MenuIcon/> </IconButton>
+                
+                
+                <Modal 
+                open={menu}
+                onClose={openClosMenu}
+                >
 
+                  <CajonInicio openClosMenu={openClosMenu} />
+
+                </Modal>
+                <IconButton aria-label="canselar" className={est.IcoMenu} onClick={()=>{openClosMenu()
+                console.log(menu)
+                }} > < MenuIcon/> </IconButton>
+              
               </Hidden>
 
             </div>
