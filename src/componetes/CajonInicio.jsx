@@ -1,10 +1,19 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 //materia ui
 import {makeStyles,Drawer,IconButton,Divider} from '@material-ui/core'
+import{
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+}from '@material-ui/core'
 
 //iconos
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const stylos = makeStyles(theme => ({
 
@@ -24,7 +33,6 @@ const stylos = makeStyles(theme => ({
 
 const CajonInicio = (props) => {
     const classes = stylos()
-    const [openNav, setopenNav] = useState(false) 
 
     return ( 
     
@@ -46,7 +54,58 @@ const CajonInicio = (props) => {
 
         <div className={classes.drawerContainer}>
 
-            <h1>hola</h1>
+            <List component="nav" >
+
+                <ListItem button onClick={()=>{
+                    props.openClosMenu();
+                    props.openClos();
+                }}>
+
+                    <ListItemIcon>
+
+                        <AccountCircleIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText>
+
+                        login
+
+                    </ListItemText>
+
+                </ListItem>
+                <ListItem button onClick={()=>{
+                    props.openCloseRegistro();
+                    props.openClosMenu();
+                }}>
+
+                    <ListItemIcon>
+
+                        <PersonAddIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText>
+
+                        registro
+
+                    </ListItemText>
+
+                </ListItem>
+                <ListItem button onClick={()=>{}}>
+
+                    <ListItemIcon>
+
+                        <HomeIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText>
+
+                        inicio
+
+                    </ListItemText>
+
+                </ListItem>
+
+            </List>
 
         </div>
 

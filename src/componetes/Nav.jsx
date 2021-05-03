@@ -25,7 +25,6 @@ import {Modal} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 import Registro from '../vistas/Registro';
 import CajonInicio from './CajonInicio';
-import CajonAdministrador from './administrador/CajonAdministrador';
 
 //funcion
  const maker = makeStyles( theme => ({
@@ -58,7 +57,6 @@ const Nav = (props) => {
 
   const openClosMenu = ()=>{
     setmenu(!menu)
-    console.log(menu)
   }
 
   const openClos = ()=>{
@@ -91,24 +89,11 @@ const Nav = (props) => {
                 <Button className={est.boton}  color="inherit" startIcon={<PersonAddIcon/>} onClick={()=>{openCloseRegistro()}} >register</Button>
                 
                 <Button className={est.boton} color="inherit" startIcon={<HomeIcon/>}><Link to="/" className="link" >inicio</Link></Button>
-              
               </Hidden>
 
               <Hidden smUp>
                 {/* ojo aqui va el icono menu */}
-                
-                
-                <Modal 
-                open={menu}
-                onClose={openClosMenu}
-                >
-
-                  <CajonInicio openClosMenu={openClosMenu} />
-
-                </Modal>
-                <IconButton aria-label="canselar" className={est.IcoMenu} onClick={()=>{openClosMenu()
-                console.log(menu)
-                }} > < MenuIcon/> </IconButton>
+                <IconButton aria-label="canselar" className={est.IcoMenu} onClick={()=>{openClosMenu()}} > < MenuIcon/> </IconButton>
               
               </Hidden>
 
@@ -117,7 +102,14 @@ const Nav = (props) => {
       </AppBar> 
           
       <div className={est.offset} ></div>
-        
+        <Modal 
+        open={menu}
+        onClose={openClosMenu}
+        >
+
+          <CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
+
+        </Modal>
         <Modal
         open={modal}
         onClose={openClos}>
