@@ -1,31 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App.jsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css"
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+//   ApolloProvider,
+// } from "@apollo/client";
 
-import { createUploadLink } from 'apollo-upload-client'
+// import { createUploadLink } from 'apollo-upload-client'
+
+// /**
+//  * Key notes:
+//  * - We need to use apollo-upload-client in order to make uploads work
+//  *   for some reason.
+//  */
+
+// const client = new ApolloClient({
+//   cache: new InMemoryCache(),
+//   //@ts-ignore
+//   link: createUploadLink({
+//     uri: "https://159.65.183.24/graphql",
+//   }),
+// });
+
+
+import { ApolloClient, InMemoryCache , ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  //@ts-ignore
-  link: createUploadLink({
-    uri: "https://159.65.183.24/graphql/",
-  }),//ojooj
+  uri: 'https://159.65.183.24/graphql/',
+  cache: new InMemoryCache()
 });
 
 ReactDOM.render(
-  
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 

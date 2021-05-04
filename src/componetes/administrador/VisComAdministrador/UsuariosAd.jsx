@@ -13,32 +13,35 @@ import ReactPaginate from 'react-paginate';
 
 import UsuarioAd from './UsuarioAd';
 
-//apollo
-import { useQuery, gql } from '@apollo/client';
 
 //css
 import '../../../css/paginacion.css'
 
+import { useQuery, gql } from '@apollo/client';
+
 const EXCHANGE_RATES = gql`
-  query{
+query{
   users{
     email
+    username
+    firstName
+    lastName
   }
 }
 `;
 
 function ExchangeRates() {
-  const {loading, error, data } = useQuery(EXCHANGE_RATES);
+  const {loading, error ,  data } = useQuery(EXCHANGE_RATES);
   debugger
   if (loading) return (
     <TableRow>
       <TableCell>Loading...</TableCell>
     </TableRow>
   );
-  if (error) return (
-    <TableRow>
-      <TableCell>Error :C</TableCell>
-    </TableRow>);
+  // if (error) return (
+  //   <TableRow>
+  //     <TableCell>Error :C</TableCell>
+  //   </TableRow>);
 
   return data.characters.results.map(character => (
     
