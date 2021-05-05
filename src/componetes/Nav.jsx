@@ -92,9 +92,9 @@ const Nav = (props) => {
               </Hidden>
 
               <Hidden smUp>
-                {/* ojo aqui va el icono menu */}
+                
                 <IconButton aria-label="canselar" className={est.IcoMenu} onClick={()=>{openClosMenu()}} > < MenuIcon/> </IconButton>
-                {/* aqui es el error */}
+                
               </Hidden>
 
             </div>
@@ -106,6 +106,7 @@ const Nav = (props) => {
         open={menu}
         onClose={openClosMenu}
         >
+        
         <div>
           <CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
         </div>
