@@ -106,8 +106,9 @@ const Nav = (props) => {
         open={menu}
         onClose={openClosMenu}
         >
-          {/* aqui llamo el modal */}<div><CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
-</div>
+        <div>
+          <CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
+        </div>
           
         </Modal>
         <Modal
