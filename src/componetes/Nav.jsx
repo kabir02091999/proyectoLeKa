@@ -94,7 +94,7 @@ const Nav = (props) => {
               <Hidden smUp>
                 {/* ojo aqui va el icono menu */}
                 <IconButton aria-label="canselar" className={est.IcoMenu} onClick={()=>{openClosMenu()}} > < MenuIcon/> </IconButton>
-              
+                {/* aqui es el error */}
               </Hidden>
 
             </div>
@@ -106,9 +106,9 @@ const Nav = (props) => {
         open={menu}
         onClose={openClosMenu}
         >
-
-          <CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
-
+          {/* aqui llamo el modal */}<div><CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
+</div>
+          
         </Modal>
         <Modal
         open={modal}
