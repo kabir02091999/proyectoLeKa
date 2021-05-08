@@ -13,6 +13,22 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
 
+//materia ui
+import { gql, useMutation } from '@apollo/client';
+
+const CREATE_USER = gql`
+  mutation signUp($input : InputSignUp!) {
+    signUp(input: $input) {
+        message
+        code
+        user{
+          id
+          email
+        }
+      }
+  }
+`;
+
 const useStyles=makeStyles((theme=>({
 
     modal:{
@@ -64,6 +80,7 @@ const useStyles=makeStyles((theme=>({
 
 const Registro = (props) => {
     
+    const [signUp, { loading, error, data }] = useMutation(CREATE_USER);
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
     const [clonpassword, setclonpassword] = useState("")
@@ -147,6 +164,8 @@ const Registro = (props) => {
         }else{
             const a=newUsuario.name
             console.log(newUsuario.gmail.indexOf("@"))
+            console.log(newUsuario)
+        
             if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
                 v.gmail=true
                 if(newUsuario.gmail.indexOf("@")===-1){
@@ -158,10 +177,18 @@ const Registro = (props) => {
                 v.password1=true
                 v.MessajePassword1="la clace no son iguales"
             }else{
-                /* console.log(newUsuario); */
+                console.log(newUsuario);
+                
+                
+                signUp({variables: {
+                    input: newUsuario
+                }})
+                console.log(error)
                 props.openclosecorreo()
-                props.openCloseRegistro() 
+                props.openCloseRegistro()
+                
             }
+             
             setcambioErrores(v)
         }
     }

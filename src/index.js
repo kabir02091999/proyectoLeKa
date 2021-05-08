@@ -15,7 +15,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   //@ts-ignore
   link: createUploadLink({
-    uri: "https://rickandmortyapi.com/graphql",
+    uri: "https://165.227.215.17/graphql",
   }),
 });
 
