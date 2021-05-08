@@ -78,9 +78,9 @@ const useStyles=makeStyles((theme=>({
 
 })))
 
-const Registro = (props) => {
+const Registro =  (props) => {
     
-    const [signUp, { loading, error, data }] = useMutation(CREATE_USER);
+    const [signUp, { loading, error, data }] =  useMutation(CREATE_USER);
     const [varial, setvarial] = useState(5)
     const styles=useStyles()
     const [clonpassword, setclonpassword] = useState("")
@@ -119,7 +119,7 @@ const Registro = (props) => {
         setclonpassword(ev.target.value)
     }
 
-    const enviar= (ev) =>{
+    const enviar= async (ev) =>{
         const v = {
             name:false,
             apellido:false,
@@ -165,7 +165,6 @@ const Registro = (props) => {
             const a=newUsuario.name
             console.log(newUsuario.gmail.indexOf("@"))
             console.log(newUsuario)
-        
             if(newUsuario.gmail.indexOf("@")===-1||newUsuario.gmail.indexOf(".com")===-1){
                 v.gmail=true
                 if(newUsuario.gmail.indexOf("@")===-1){
@@ -179,8 +178,8 @@ const Registro = (props) => {
             }else{
                 console.log(newUsuario);
                 
-                
-                signUp({variables: {
+                /* aprnder */
+                await signUp({variables: {
                     input: newUsuario
                 }})
                 console.log(error)
@@ -207,7 +206,7 @@ const Registro = (props) => {
 
     return ( 
     <div className={styles.modal}>
-         <form  onSubmit={enviar} >
+        <form  onSubmit={enviar} >
             <div>
                 <div>
                     <Typography variant="h4" color="initial">registro</Typography>
