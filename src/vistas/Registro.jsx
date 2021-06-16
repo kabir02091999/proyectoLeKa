@@ -37,7 +37,7 @@ const useStyles=makeStyles((theme=>({
         width:'45%',
         display: "inline-block",
         marginTop: '10px',
-         marginRight: '10px' 
+        marginRight: '10px' 
 
     },divName:{
 
