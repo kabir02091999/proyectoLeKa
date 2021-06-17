@@ -1,5 +1,3 @@
 .primeraNavar{
-    transition: 1s;
-    position: relative;
-    right: -100%;
+    z-index: 1000;
 }

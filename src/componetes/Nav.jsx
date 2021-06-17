@@ -41,7 +41,7 @@ import CajonInicio from './CajonInicio';
     color:"honeydew"
 
   },appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: 1,/* theme.zIndex.drawer +  ojo en esta mierda jajaj */
   }
 
 })) 
@@ -111,8 +111,8 @@ const Nav = (props) => {
         onClose={openClosMenu}
         > */}
         
-        <div className={navar}>
-          <CajonInicio className={navar} open={open} setopen={setopen} openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
+        <div className='primeraNavar'>
+          <CajonInicio  open={open} setopen={setopen} openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
         </div>
           
         {/* </Modal> */}
