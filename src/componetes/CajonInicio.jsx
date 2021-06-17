@@ -53,7 +53,7 @@ const CajonInicio = (props) => {
 
         <div className={classes.offset} >
 
-            <IconButton aria-label="canselar" /* className={} */ onClick={()=>{props.openClosMenu(); props.setopen(false); console.log(props.open)}} > <ArrowForwardIcon/> </IconButton>
+            <IconButton aria-label="canselar" /* className={} */ onClick={()=>{props.setopen(false); }} > <ArrowForwardIcon/> </IconButton>
 
         </div>
         <Divider/>
@@ -65,6 +65,7 @@ const CajonInicio = (props) => {
                 <ListItem button onClick={()=>{
                     props.openClosMenu();
                     props.openClos();
+                    props.setopen(false);
                 }}>
 
                     <ListItemIcon>
@@ -82,6 +83,7 @@ const CajonInicio = (props) => {
                 <ListItem button onClick={()=>{
                     props.openCloseRegistro();
                     props.openClosMenu();
+                    props.setopen(false);
                 }}>
 
                     <ListItemIcon>
@@ -98,7 +100,8 @@ const CajonInicio = (props) => {
                 </ListItem>
                 <ListItem button onClick={()=>{
                     historia.push("/");
-                    props.openClosMenu();}}>
+                    props.openClosMenu();
+                    props.setopen(false);}}>
 
                     <ListItemIcon>
 

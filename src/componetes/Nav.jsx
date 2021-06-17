@@ -58,8 +58,6 @@ const Nav = (props) => {
   const est = maker()
 
   const openClosMenu = ()=>{
-    setmenu(!menu)
-    setnavar('segundoNavar')
     setopen(true)
   }
 
@@ -106,16 +104,11 @@ const Nav = (props) => {
       </AppBar> 
           
       <div className={est.offset} ></div>
-        {/* <Modal 
-        open={menu}
-        onClose={openClosMenu}
-        > */}
         
         <div className='primeraNavar'>
           <CajonInicio  open={open} setopen={setopen} openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
-        </div>
-          
-        {/* </Modal> */}
+        </div>  
+        
         <Modal
         open={modal}
         onClose={openClos}>
