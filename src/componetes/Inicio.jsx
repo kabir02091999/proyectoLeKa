@@ -17,6 +17,9 @@ import videos from '../imagenes/videojuegos.jpg'
 import apple from '../imagenes/apple.jpg'
 import android from '../imagenes/android.jpg'
 
+//css estilos
+import '../css/navar.css'
+
 //materia ui
 import {Typography,withWidth} from '@material-ui/core'
 import Categoria from './Categoria';

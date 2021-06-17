@@ -42,16 +42,18 @@ const CajonInicio = (props) => {
     
     <Drawer
         className={classes.drawer}
-        variant="permanent"
+        variant="persistent"
+        open={props.open}
         classes={{
           paper: classes.drawerPaper,
         }}
         anchor="right"
       >
+       
 
         <div className={classes.offset} >
 
-            <IconButton aria-label="canselar" /* className={} */ onClick={()=>{props.openClosMenu();}} > <ArrowForwardIcon/> </IconButton>
+            <IconButton aria-label="canselar" /* className={} */ onClick={()=>{props.openClosMenu(); props.setopen(false); console.log(props.open)}} > <ArrowForwardIcon/> </IconButton>
 
         </div>
         <Divider/>

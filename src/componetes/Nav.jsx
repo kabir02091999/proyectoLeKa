@@ -48,6 +48,8 @@ import CajonInicio from './CajonInicio';
 
 const Nav = (props) => {
 
+  const [navar, setnavar] = useState('primeraNavar')
+  const [open, setopen] = useState(false)
   const [modal, setmodal] = useState(false)
   const [modalRegistro, setmodalRegistro] = useState(false)
   const [comcorreo, setcomcorreo] = useState(false)
@@ -57,6 +59,8 @@ const Nav = (props) => {
 
   const openClosMenu = ()=>{
     setmenu(!menu)
+    setnavar('segundoNavar')
+    setopen(true)
   }
 
   const openClos = ()=>{
@@ -102,16 +106,16 @@ const Nav = (props) => {
       </AppBar> 
           
       <div className={est.offset} ></div>
-        <Modal 
+        {/* <Modal 
         open={menu}
         onClose={openClosMenu}
-        >
+        > */}
         
-        <div>
-          <CajonInicio openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
+        <div className={navar}>
+          <CajonInicio className={navar} open={open} setopen={setopen} openClosMenu={openClosMenu} openClos={openClos} openCloseRegistro={openCloseRegistro} />
         </div>
           
-        </Modal>
+        {/* </Modal> */}
         <Modal
         open={modal}
         onClose={openClos}>
